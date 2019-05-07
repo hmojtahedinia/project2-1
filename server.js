@@ -21,6 +21,35 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+//Routes for Hanlebars (HOLLY)
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+app.get('/map', (req, res) => {
+  res.render('map');
+});
+
+app.get('/newuser', (req, res) => {
+  res.render('newuser');
+});
+
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+app.get('/add', (req, res) => {
+  res.render('add');
+});
+
+app.get('/rate', (req, res) => {
+  res.render('rate');
+});
+
+app.get('/404', (req, res) => {
+  res.render('404');
+});
+
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
@@ -34,7 +63,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
+// db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
@@ -42,6 +71,6 @@ db.sequelize.sync(syncOptions).then(function() {
       PORT
     );
   });
-});
+// });
 
 module.exports = app;
