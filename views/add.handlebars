@@ -1,42 +1,49 @@
 <h2>{{add}}</h2>
-    <div class="container container-fluid " id="profile">
-        <img id="profilePic" src="images/rolls.PNG" class="img-fluid">
-        <p id="profileName">Hello Debra</p>
-    </div>
-    <div class="container col-lg-4 addWC">
-        {{!-- <form action="upload.php" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload Image" name="submit">
-        </form> --}}
+{{!-- <div class="container container-fluid " id="profile">
+<img id="profilePic" src="images/rolls.PNG" class="img-fluid">
+<p id="profileName">Hello Debra</p>
+</div> --}}
+<div class="container col-lg-4 addWC">
+    <label for="inputRating" class="formTitle">Add a Washroom</label>
+{{!-- <form action="upload.php" method="post" enctype="multipart/form-data">
+ Select image to upload:
+<input type="file" name="fileToUpload" id="fileToUpload">
+<input type="submit" value="Upload Image" name="submit">
+</form> --}}
         <form class="form">
-                <input type="location" id="inputLocation" class="form-control userinput" placeholder="Location" required autofocus>
-            <label for="inputRating" class="formTitle">Rating</label>
-                <select class="form-control" id="inputRating" placeholder="Rating">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+            <input type="location" id="inputLocation" class="form-control userinput" placeholder="Location" required autofocus>
+                <label for="inputRating" class="formTitle">Rating</label>
+                    <select class="form-control" id="inputRating" placeholder="Rating">
+{{!-- rating nesting and if esle etc and other handlebars will be needed here to communicate with SQL will add later. --}}
+                    <option id="10">5 stars</option>
+                    <option id="9">4.5 stars</option>
+                    <option id="8">4 stars</option>
+                    <option id="7">3.5 stars</option>
+                    <option id="6">3 stars</option>
+                    <option id="5">2.5 stars</option>
+                    <option id="4">2 stars</option>
+                    <option id="3">1.5 stars</option>
+                    <option id="2">1 star</option>
+                    <option id="1">0 stars</option>
                 </select>
-                <br><br>
-          <!-- <label>
-                <input type="checkbox" value="clean" name="rate"> Clean</label>
-            <label>
-                <input type="checkbox" value="ventellation" name="rate"> Ventellation</label>
-            <label>
-                <input type="checkbox" value="handDryer" name="rate"> Hand Dryer</label>
-            <label>
-                <input type="checkbox" value="multiStall" name="rate"> Multi Stall</label>
-            <label>
-                <input type="checkbox" value="wideCounter" name="rate"> Wide Counter</label>
-            <label>
-                <input type="checkbox" value="brightLighting" name="rate"> Bright Lighting</label> -->
-        </form>       
-      </div> 
+                    <br><br>
+<!-- <label>
+<input type="checkbox" value="clean" name="rate"> Clean</label>
+<label>
+<input type="checkbox" value="ventellation" name="rate"> Ventellation</label>
+<label>
+<input type="checkbox" value="handDryer" name="rate"> Hand Dryer</label>
+<label>
+<input type="checkbox" value="multiStall" name="rate"> Multi Stall</label>
+<label>
+<input type="checkbox" value="wideCounter" name="rate"> Wide Counter</label>
+<label>
+<input type="checkbox" value="brightLighting" name="rate"> Bright Lighting</label> -->
+    </form>       
+</div> 
     <br><br>
-      <div class="container btnContainer" >
-          <a href="addWC.html"><button class="btn btn-default" type="submit" id="userpageSubmit">Submit</button></a>
-      </div>
-    {{!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> --}}
+    <div class="container btnContainer" >
+        <a href="addWC.html"><button class="btn btn-default" type="submit" id="userpageSubmit">Submit</button></a>
+    </div>
+{{!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> --}}
   
