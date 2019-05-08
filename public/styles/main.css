@@ -1,0 +1,261 @@
+/*==================================================================================================================================================================
+    SASS functions & variables
+====================================================================================================================================================================*/
+/*media queries for various view port sizes*/
+/*==================================================================================================================================================================
+    Uniform styling for pages
+====================================================================================================================================================================*/
+body {
+  background-color: #474646;
+  overflow: auto;
+}
+
+/*btn links & submit btns*/
+.btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn-default {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+  color: #D3D0D0;
+  padding: 15px;
+  line-height: 15px;
+  border: 2px solid white;
+  border-radius: 40px;
+  background: white;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  margin: 30px;
+}
+
+@media (max-width: 380px) {
+  .btn-default {
+    font-size: 18px;
+    width: 150px;
+  }
+}
+
+.btn-default:hover {
+  color: #474646;
+  background: white;
+  border: 2px solid white;
+}
+
+/*Time to GO logo*/
+#logoName {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*the 3 toilet rolls image*/
+#rolls {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  bottom: 0px;
+  right: 0px;
+}
+
+/*wrapps whole page*/
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  border-radius: 40px;
+}
+
+/*==================================================================================================================================================================
+    INDEX page
+====================================================================================================================================================================*/
+.navbar {
+  background-color: #474646;
+}
+
+.btn {
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 40px;
+}
+
+/*bar contains search form, filter button & address display button*/
+#searchParameters {
+  z-index: 2;
+  left: 40%;
+  position: fixed;
+  text-align: center;
+  top: 10px;
+  background: transparent;
+  padding: 5px;
+  margin: 5px;
+}
+
+@media (max-width: 380px) {
+  #searchParameters {
+    float: left;
+  }
+}
+
+#searchParameters form {
+  border: 2px solid #D3D0D0;
+  border-radius: 40px;
+  width: 500px;
+}
+
+/*Hamburger menu is only visable on mobile ports*/
+/*toggling of side-bar (contains links to logIn/Register page)*/
+#sidebarCollapse {
+  visibility: hidden;
+}
+
+@media (max-width: 380px) {
+  #sidebarCollapse {
+    visibility: visible;
+  }
+}
+
+#sidebarCollapse a[data-toggle="collapse"] {
+  position: relative;
+}
+
+#sidebarCollapse .dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+  background-color: #474646;
+}
+
+@media (max-width: 380px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+@media (max-width: 380px) {
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
+
+/*Google Map display*/
+#content, #userLocationMap {
+  border-radius: 40px;
+  margin-right: 80px;
+  margin-top: 0px;
+}
+
+@media (max-width: 380px) {
+  #content, #userLocationMap {
+    float: left;
+  }
+}
+
+/*==================================================================================================================================================================
+    Userpage Styling
+====================================================================================================================================================================*/
+.userPage {
+  float: left;
+  margin: 100px;
+  text-align: center;
+}
+
+.userPage .signInHeading {
+  text-align: center;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.userPage .userinput {
+  border-radius: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.userPage #termsConditions {
+  overflow: scroll;
+  height: 300px;
+  border-radius: 40px;
+  background-color: white;
+  color: #474646;
+}
+
+.userPage .checkbox {
+  margin-top: 20px;
+  color: white;
+}
+
+.btnContainer {
+  text-align: center;
+}
+
+/*==================================================================================================================================================================
+    Add WC Styling
+====================================================================================================================================================================*/
+#profile {
+  padding: 20px;
+}
+
+#profile #profilePic {
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
+  border: 2px solid white;
+}
+
+#profile #profileName {
+  margin-top: 20px;
+  padding-left: 60px;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.addWC {
+  float: left;
+  text-align: center;
+}
+
+.addWC #uploadWcPic {
+  background-color: white;
+}
+
+.addWC .formTitle {
+  text-align: center;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+}
+
+.addWC .userinput, .addWC #inputRating {
+  border-radius: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.addWC .checkbox {
+  margin: 20px;
+  padding: 10px;
+  color: white;
+}
+
+.btnContainer {
+  text-align: center;
+}
+/*# sourceMappingURL=main.css.map */
