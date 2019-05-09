@@ -21,7 +21,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 //Routes for Hanlebars (HOLLY)
-app.get('/',(req, res) => {
+app.get('/', (req, res) => {
     res.render('index');
 });
 
@@ -62,7 +62,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-// db.sequelize.sync(syncOptions).then(function() {
+db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
@@ -70,6 +70,6 @@ if (process.env.NODE_ENV === "test") {
       PORT
     );
   });
-// });
+});
 
 module.exports = app;
