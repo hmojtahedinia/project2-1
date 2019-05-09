@@ -21,7 +21,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 //Routes for Hanlebars (HOLLY)
-app.get('/',(req, res) => {
+app.get('/', (req, res) => {
     res.render('index');
 });
 
