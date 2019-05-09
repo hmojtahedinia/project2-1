@@ -1,24 +1,26 @@
+/* eslint-disable prettier/prettier */
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+	// Get all washrooms
+	app.get("/api/washrooms", function(req, res) {
+		db.Washroom.findAll({}).then(function(dbwashrooms) {
+			res.json(dbwashrooms);
+		});
+	});
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+	// Create a new washroom
+	app.post("/api/washrooms", function(req, res) {
+		db.Washroom.create(req.body).then(function(dbwashroom) {
+			res.json(dbwashroom);
+		});
+	});
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+	// Delete an washroom by id
+	app.delete("/api/washrooms/:id", function(req, res) {
+		db.Washroom.destroy({ where: { id: req.params.id } })
+			.then(function(dbwashroom) {
+				res.json(dbwashroom);
+			});
+	});
 };
