@@ -1,5 +1,4 @@
 // Declare global variables
-const GETRoute = '/api/all';
 let map;
 
 // dummy array of data to test with
@@ -38,6 +37,13 @@ const data = [
         address: '40 Bay Street',
         overallRating: 6, 
         comment: 'Though loss for the Raptors tonight. The smell of urine and overpriced beer permeated the air. Vanity covered in water. Urinals, urinals everywhere.'
+    },
+    {
+        id: 6, 
+        nameOfPlace: 'See-Scape',
+        address: '347 Keele Street',
+        overallRating: 5, 
+        comment: 'The Punisher display was pretty cool. Other than that, not much to say about this bathroom.'
     }
 ];
 
@@ -45,13 +51,14 @@ function initMap() {
     // grabbing InfoWindow and Geocoder objects from Maps API
     const geocoder = new google.maps.Geocoder();
     const infoWindow = new google.maps.InfoWindow();
-
+    
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12.15,
         center: new google.maps.LatLng(43.68, -79.43),
         mapTypeId: 'terrain'
     });
 
+    const GETRoute = '/api/washrooms';
     // Loop through the results array and place a marker for each
     // set of coordinates.
     // $.get(GETRoute, (data) => {
@@ -75,9 +82,12 @@ function initMap() {
                     '</div>'+
                     '</div>';
             
+
+
                     const marker = new google.maps.Marker({
                         position: coords,
-                        map: map
+                        map: map,
+                        icon:  location.overallRating > 5 ? "http://maps.google.com/mapfiles/ms/icons/blue.png" : "http://maps.google.com/mapfiles/ms/icons/red.png"
                     });
                 
                     google.maps.event.addListener(marker, 'click', function() {
