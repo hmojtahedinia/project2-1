@@ -5,6 +5,10 @@
 /*==================================================================================================================================================================
     Uniform styling for pages
 ====================================================================================================================================================================*/
+html {
+  overflow: auto;
+}
+
 body {
   background-color: #474646;
   overflow: auto;
@@ -45,18 +49,26 @@ body {
 
 /*Time to GO logo*/
 #logoName {
-  border: 0px;
-  padding: 0px;
-  margin: 0px;
+  width: 250px;
+  height: 150px;
+  padding-left: 20px;
 }
 
-/*the 3 toilet rolls image*/
-#rolls {
-  position: absolute;
+/*the 3 toilet rolls image & logo*/
+#logoSub {
+  position: fixed;
+  width: 200px;
+  height: 100px;
+  bottom: 0px;
+  left: 20px;
+}
+
+#rollSub {
+  position: fixed;
   width: 100px;
   height: 100px;
   bottom: 0px;
-  right: 0px;
+  right: 20px;
 }
 
 /*wrapps whole page*/
@@ -80,7 +92,7 @@ body {
 .btn {
   background-color: transparent;
   border-color: transparent;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 /*bar contains search form, filter button & address display button*/
@@ -172,8 +184,8 @@ body {
     Userpage Styling
 ====================================================================================================================================================================*/
 .userPage {
-  float: left;
-  margin: 100px;
+  margin: 20px;
+  margin-left: 33%;
   text-align: center;
 }
 
@@ -209,27 +221,9 @@ body {
 /*==================================================================================================================================================================
     Add WC Styling
 ====================================================================================================================================================================*/
-#profile {
-  padding: 20px;
-}
-
-#profile #profilePic {
-  border-radius: 100px;
-  height: 200px;
-  width: 200px;
-  border: 2px solid white;
-}
-
-#profile #profileName {
-  margin-top: 20px;
-  padding-left: 60px;
-  color: white;
-  font-family: 'Times New Roman', Times, serif;
-}
-
 .addWC {
-  float: left;
-  text-align: center;
+  margin: 20px;
+  margin-left: 33%;
 }
 
 .addWC #uploadWcPic {
