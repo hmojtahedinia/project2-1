@@ -1,19 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Example</h5>
+<h2>{{newuser}}</h2>
+<div class="container col-lg-4  userPage">
+  <form class="form-signin">
+    <h2 class="form-signin-heading signInHeading">REGISTER</h2>
+      <label for="newUserName" class="sr-only">Choose a User Name</label>
+      <input type="newuserName" id="newUserName" class="form-control userinput" placeholder="Choose a User Name" required autofocus>
+      <label for="newPassword" class="sr-only">Choose a Password</label>
+      <input type="newpassword" id="newPassword" class="form-control userinput" placeholder="Choose a Password" required>
+      <div class="container container-fluid" id="termsConditions">
+        <b>Terms and Conditions Agreement</b>
           <p>
-            <strong>ID</strong>: {{example.id}}</p>
-          <p>
-          <p>
-            <strong>Text</strong>: {{example.text}}</p>
-          <p>
-            <strong>Description:</strong> {{example.description}}</p>
-            <a href="/">← Back To Home</a>
-        </div>
+                Ricotta bavarian bergkase when the cheese comes out everybody's happy. Airedale goat parmesan stilton stinking bishop monterey jack hard cheese cheese triangles. Cheesy feet halloumi queso monterey jack red leicester blue castello manchego mozzarella. Bocconcini caerphilly danish fontina monterey jack cauliflower cheese brie caerphilly manchego. Fromage frais airedale st. agur blue cheese ricotta hard cheese blue castello queso babybel. Pepper jack say cheese taleggio who moved my cheese.
+                Lancashire cheese and biscuits goat. Cottage cheese port-salut cheese slices pepper jack swiss fromage roquefort cheddar. Airedale croque monsieur babybel cheese slices boursin fromage frais cut the cheese cheesecake. Bavarian bergkase chalk and cheese cheese slices red leicester camembert de normandie say cheese port-salut cottage cheese. Caerphilly caerphilly goat boursin cheddar fondue cream cheese cheddar. Rubber cheese pecorino taleggio stinking bishop smelly cheese.
+              
+                Mascarpone cheeseburger mozzarella. Pepper jack airedale cut the cheese hard cheese smelly cheese cow pecorino macaroni cheese. Danish fontina ricotta halloumi red leicester cream cheese fondue chalk and cheese lancashire. Cheese strings swiss everyone loves cheesecake red leicester parmesan manchego st. agur blue cheese. Hard cheese lancashire paneer mozzarella cheese strings cheese and biscuits monterey jack cheese slices. Squirty cheese cut the cheese paneer parmesan cottage cheese paneer macaroni cheese cottage cheese. Manchego bocconcini roquefort manchego cheese and biscuits taleggio jarlsberg lancashire. Taleggio.
+                
+                Lancashire bavarian bergkase the big cheese. Monterey jack feta croque monsieur hard cheese cheddar dolcelatte fromage frais airedale. Taleggio cow fromage frais cheese triangles pepper jack feta melted cheese bocconcini. Manchego roquefort cut the cheese babybel when the cheese comes out everybody's happy macaroni cheese dolcelatte fromage frais. Queso fondue cheese slices cheese triangles halloumi swiss pecorino who moved my cheese. Everyone loves cream cheese fromage frais jarlsberg who moved my cheese red leicester queso fromage. Lancashire cheese on toast stinking bishop cheese and biscuits everyone loves airedale.
+                Cheese and biscuits boursin the big cheese. Cheese on toast the big cheese the big cheese dolcelatte bavarian bergkase swiss cottage cheese edam. Monterey jack cheese and biscuits manchego stinking bishop camembert de normandie squirty cheese cauliflower cheese pecorino. Cheese strings caerphilly cheeseburger pecorino goat edam halloumi cow. Manchego gouda parmesan taleggio airedale taleggio cheesy feet mozzarella. Squirty cheese cheese strings say cheese caerphilly chalk and cheese cow rubber cheese emmental. Queso.
+          </p>
       </div>
-    </div>
+          
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="agree"> I Agree to the terms & conditions
+        </label>
+      </div>
+  </form>
+  
+</div> 
+      
+  <div class="container btnContainer" >
+    <a href="/add"><button class="btn btn-default" type="submit" id="userpageSubmit">Submit</button></a>
   </div>
-</div>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>

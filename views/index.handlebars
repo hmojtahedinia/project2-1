@@ -1,112 +1,114 @@
 
-        <!-- Top bar Button-->
-        <div id="content">
-           <!-- Hamburger Button-->
-            <nav class="navbar navbar-expand-lg justify-content-between">
-                <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn ">
-                        <i class="fas fa-bars"></i>
-                    </button>       
-                </div>
-            </nav>
-        </div>
+<!-- Top bar Button-->
+  <div id="content">
 
-        <!-- Search Parameters-->
-        <div class=" container input-container justify-content-between col-sm-12" id="searchParameters">
-             <form class="form-inline">
-                <button type="submit" id="search" class="btn"><i class="fas fa-search"></i></button>
-                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                 <!-- Triggers the filter modal-->
-                 <button type="button" class="btn" data-toggle="modal" data-target="#locationFilter" id="filter"><i class="fas fa-filter"></i></button>
-                <!-- Triggers the WC Address modal-->
-                 <button type="button" class="btn" data-toggle="modal" data-target="#wcLocation" id="wcAdress"><i class="fas fa-compass"></i></button>
-             </form>
-        </div>
+<!-- Hamburger Button-->
+  <nav class="navbar navbar-expand-lg justify-content-between">
+    <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn ">
+          <i class="fas fa-bars"></i>
+        </button>       
+    </div>
+  </nav>
+</div>
 
-        <!-- wrap contents in bootstrap wrapper class so contents inside will expand as viewport expands/shrinks -->
-        <div class="wrapper">
-            <!-- Sidebar -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
-                    <img class="img-fluid" src="/styles/images/logo.PNG" alt="logoName" id="logoName">
+<!-- Search Parameters-->
+<div class=" container input-container justify-content-between col-sm-12" id="searchParameters">
+  <form class="form-inline">
+    <button type="submit" id="search" class="btn"><i class="fas fa-search"></i></button>
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                 
+<!-- Triggers the filter modal-->
+    <button type="button" class="btn" data-toggle="modal" data-target="#locationFilter" id="filter"><i class="fas fa-filter"></i></button>
 
-                </div>
-                <ul class="list-unstyled components">
-                    <li>
-                        <a href="userpage.html"><button type="button" class="btn btn-default">LOG IN</button></a> 
-                    </li>
-                    <li>
-                        <a href="userpage.html"><button type="button" class="btn btn-default">ADD WC</button></a> 
-                    </li>
-                    <li>
-                        <a href="#"><button type="button" class="btn btn-default">ABOUT US</button></a> 
-                    </li>
-                </ul>
-            </nav>
+<!-- Triggers the WC Address modal-->
+    <button type="button" class="btn" data-toggle="modal" data-target="#wcLocation" id="wcAdress"><i class="fas fa-compass"></i></button>
+  </form>
+</div>
+
+<!-- wrap contents in bootstrap wrapper class so contents inside will expand as viewport expands/shrinks -->
+  <div class="wrapper">
+            
+<!-- Sidebar -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+        <img class="img-fluid" src="/styles/images/logo.PNG" alt="logoName" id="logoName">
+    </div>
+        <ul class="list-unstyled components">
+          <li>
+          <a href="/newuser"><button type="button" class="btn btn-default">LOG IN</button></a> 
+          </li>
+          <li>
+          <a href="/add"><button type="button" class="btn btn-default">ADD WC</button></a> 
+          </li>
+          <li>
+          <a href="#"><button type="button" class="btn btn-default">ABOUT US</button></a> 
+          </li>
+        </ul>
+  </nav>
         
-            <!-- Page Content -->
-            <div id="content" class=" container container-fluid card-body col-sm-12">
-                <img class="img-fluid" src="/styles/images/mapsample.PNG" alt="userLocationMap" id="userLocationMap">
+<!-- Page Content -->
+  <div id="content" class=" container container-fluid card-body col-sm-12">
+      <img class="img-fluid" src="/styles/images/mapsample.PNG" alt="userLocationMap" id="userLocationMap">
+  </div>
+      <img class="img-fluid" src="/styles/images/rolls.PNG" alt="rolls" id="rolls">
+  </div>  
+        
+<!--Filter modal-->
+  <div class="container">
                 
+<!-- Modal -->
+  <div class="modal fade" id="locationFilter" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Check all that applies</h4>
+        </div>
+    <div class="modal-body">    
+            <form>
+              <label>
+                <input type="checkbox" value="clean" name="rate"> Clean</label>
+              <label>
+                <input type="checkbox" value="ventellation" name="rate"> Ventellation</label>
+              <label>
+                <input type="checkbox" value="handDryer" name="rate"> Hand Dryer</label>
+              <label>
+                <input type="checkbox" value="multiStall" name="rate"> Multi Stall</label>
+              <label>
+                <input type="checkbox" value="wideCounter" name="rate"> Wide Counter</label>
+              <label>
+                <input type="checkbox" value="brightLighting" name="rate"> Bright Lighting</label>
+                  <br>
+                    <button type="button">Submit</button>
+              </form>
             </div>
-                
-
-            <img class="img-fluid" src="/styles/images/rolls.PNG" alt="rolls" id="rolls">
-        </div>  
-        
-        <!--Filter modal-->
-        <div class="container">
-                <!-- Modal -->
-                <div class="modal fade" id="locationFilter" role="dialog">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Check all that applies</h4>
-                      </div>
-                        <div class="modal-body">    
-                                <form>
-                                    <label>
-                                        <input type="checkbox" value="clean" name="rate"> Clean</label>
-                                    <label>
-                                        <input type="checkbox" value="ventellation" name="rate"> Ventellation</label>
-                                    <label>
-                                        <input type="checkbox" value="handDryer" name="rate"> Hand Dryer</label>
-                                    <label>
-                                        <input type="checkbox" value="multiStall" name="rate"> Multi Stall</label>
-                                    <label>
-                                        <input type="checkbox" value="wideCounter" name="rate"> Wide Counter</label>
-                                    <label>
-                                        <input type="checkbox" value="brightLighting" name="rate"> Bright Lighting</label>
-                                    <br>
-                                        <button type="button">Submit</button>
-                                </form>
-                            </div>
-                          <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
         </div>
+    </div>
+  </div>
+</div>
 
-        <!-- WC Address Modal -->
-        <div class="container">
-                <!-- Modal -->
-                <div class="modal fade" id="wcLocation" role="dialog">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Location of WC</h4>
-                      </div>
-                      <div class="modal-body">
-                        <img src="/styles/images/newWC.PNG" class="img-fluid">
-                        <p>55 St george</p>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
+<!-- WC Address Modal -->
+  <div class="container">
+
+<!-- Modal -->
+    <div class="modal fade" id="wcLocation" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Location of WC</h4>
+          </div>
+            <div class="modal-body">
+              <img src="/styles/images/newWC.PNG" class="img-fluid">
+                <p>55 St george</p>
+            </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   </div>
-                </div>
-        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
