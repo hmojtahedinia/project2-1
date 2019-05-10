@@ -48,8 +48,9 @@
   </nav>
         
 <!-- Page Content -->
-  <div id="content" class=" container container-fluid card-body col-sm-12">
-      <img class="img-fluid" src="/styles/images/mapsample.PNG" alt="userLocationMap" id="map">
+  <div id="content" class=" container container-fluid card-body col-sm-12" >
+      <div id="map"></div>
+
   </div>
 
   </div>  
@@ -64,28 +65,24 @@
         <div class="modal-header">
           <h4 class="modal-title">Filter by rating of stars</h4>
         </div>
-    <div class="modal-body">    
-        
-            <form class="form">
-                <label for="filterRating" class="formTitle">Rating</label>
-                    <select class="form-control" id="filterRating" placeholder="Choose a rating">
-                    <option id="10">5 stars</option>
-                    <option id="9">4.5 stars</option>
-                    <option id="8">4 stars</option>
-                    <option id="7">3.5 stars</option>
-                    <option id="6">3 stars</option>
-                    <option id="5">2.5 stars</option>
-                    <option id="4">2 stars</option>
-                    <option id="3">1.5 stars</option>
-                    <option id="2">1 star</option>
-                    <option id="1">0 stars</option>
-                </select>
-            </form>
+            <div class="modal-body">           
+                <fieldset class="rating">
+                    <input type="radio" id="10" name="rating" value="10" /><label class = "full" for="10" title="5 stars"></label>
+                    <input type="radio" id="9" name="rating" value="9" /><label class="half" for="9" title="4.5 stars"></label>
+                    <input type="radio" id="8" name="rating" value="8" /><label class = "full" for="8" title="4 stars"></label>
+                    <input type="radio" id="7" name="rating" value="7" /><label class="half" for="7" title="3.5 stars"></label>
+                    <input type="radio" id="6" name="rating" value="6" /><label class = "full" for="6" title="3 stars"></label>
+                    <input type="radio" id="5" name="rating" value="5" /><label class="half" for="5" title="2.5 stars"></label>
+                    <input type="radio" id="4" name="rating" value="4" /><label class = "full" for="4" title="2 stars"></label>
+                    <input type="radio" id="3" name="rating" value="3" /><label class="half" for="3" title="1.5 stars"></label>
+                    <input type="radio" id="2" name="rating" value="2" /><label class = "full" for="2" title="1 star"></label>
+                    <input type="radio" id="1" name="rating" value="1" /><label class="half" for="1" title="0.5 stars"></label>
+                </fieldset>
             </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+      </div>
     </div>
   </div>
 </div>
@@ -104,11 +101,15 @@
               <img src="/styles/images/newWC.PNG" class="img-fluid">
                 <p>55 St george</p>
             </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
+            <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
       </div>
     </div>
   </div>
 </div>
 
+  <script src="/js/bathroomMap.js"></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdqgem0RZ431c7E7bQ3sMci0LDJX_5_5Q&callback=initMap">
+  </script>

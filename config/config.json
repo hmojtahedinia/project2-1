@@ -1,18 +1,18 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "root",
+    "database": "washroomDb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
-    "logging": false
+    "logging": "false"
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
