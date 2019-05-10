@@ -2,7 +2,7 @@
 let map;
 
 // dummy array of data to test with
-const data = [
+const washrooms = [
     {
         id: 1, 
         nameOfPlace: 'Kinton Ramen', 
@@ -51,7 +51,7 @@ function initMap() {
     // grabbing InfoWindow and Geocoder objects from Maps API
     const geocoder = new google.maps.Geocoder();
     const infoWindow = new google.maps.InfoWindow();
-    
+    console.log($);
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12.15,
         center: new google.maps.LatLng(43.68, -79.43),
@@ -61,47 +61,99 @@ function initMap() {
     const GETRoute = '/api/washrooms';
     // Loop through the results array and place a marker for each
     // set of coordinates.
-    // $.get(GETRoute, (data) => {
-
-        for (let i = 0; i < data.length; i++) {
-            const location = data[i];
-
-            geocoder.geocode({address: location.address + ', Toronto, Canada'}, (results, status) => {
-                if (status === google.maps.GeocoderStatus.OK) {
-
-                    const coords = results[0].geometry.location;
-                            
-                    const contentString = '<div id="content">'+
-                    '<div id="siteNotice">'+
-                    '</div>'+
-                    '<h1 id="firstHeading" class="firstHeading">' + location.nameOfPlace + '</h1>'+
-                    '<div id="bodyContent">'+
-                    '<p><b>Address:</b> ' + location.address + '</p>' +
-                    '<p><b>Overall Rating:</b> ' + location.overallRating + '/10</p>' +
-                    '<p><b>Review:</b> ' + location.comment + '</p>'+
-                    '</div>'+
-                    '</div>';
-            
-
-
-                    const marker = new google.maps.Marker({
-                        position: coords,
-                        map: map,
-                        icon:  location.overallRating > 5 ? "http://maps.google.com/mapfiles/ms/icons/blue.png" : "http://maps.google.com/mapfiles/ms/icons/red.png"
-                    });
+    /*
+    $.ajax(GETRoute, {
+        success: function(data) {
                 
-                    google.maps.event.addListener(marker, 'click', function() {
-                        infoWindow.setContent(contentString);
-                        infoWindow.open(map, this);
-                    });
+            for (let i = 0; i < data.length; i++) {
+                const location = data[i];
 
-                }  else { // if status value is not equal to "google.maps.GeocoderStatus.OK"
+                geocoder.geocode({address: location.address + ', Toronto, Canada'}, (results, status) => {
+                    if (status === google.maps.GeocoderStatus.OK) {
 
-                    // warning message
-                    alert("The Geocode was not successful for the following reason: " + status);
-                }
-            });
+                        const coords = results[0].geometry.location;
+                                
+                        const contentString = '<div id="content">'+
+                        '<div id="siteNotice">'+
+                        '</div>'+
+                        '<h1 id="firstHeading" class="firstHeading">' + location.nameOfPlace + '</h1>'+
+                        '<div id="bodyContent">'+
+                        '<p><b>Address:</b> ' + location.address + '</p>' +
+                        '<p><b>Overall Rating:</b> ' + location.overallRating + '/10</p>' +
+                        '<p><b>Review:</b> ' + location.comment + '</p>'+
+                        '</div>'+
+                        '</div>';
+                
+
+
+                        const marker = new google.maps.Marker({
+                            position: coords,
+                            map: map,
+                            icon:  location.overallRating > 5 ? "http://maps.google.com/mapfiles/ms/icons/blue.png" : "http://maps.google.com/mapfiles/ms/icons/red.png"
+                        });
+                    
+                        google.maps.event.addListener(marker, 'click', function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map, this);
+                        });
+
+                    }  else { // if status value is not equal to "google.maps.GeocoderStatus.OK"
+
+                        // warning message
+                        alert("The Geocode was not successful for the following reason: " + status);
+                    }
+                });
+            }
         }
-    //});
+    });
+    */
+   fetch(GETRoute).then(result => {
+            // console.log(result);
+            return result.json();
+        })
+        .then(data => {
+            // console.log(data);
+               
+            for (let i = 0; i < data.length; i++) {
+                const location = data[i];
+
+                geocoder.geocode({address: location.address + ', Toronto, Canada'}, (results, status) => {
+                    if (status === google.maps.GeocoderStatus.OK) {
+
+                        const coords = results[0].geometry.location;
+                                
+                        const contentString = '<div id="content">'+
+                        '<div id="siteNotice">'+
+                        '</div>'+
+                        '<h1 id="firstHeading" class="firstHeading">' + location.nameOfPlace + '</h1>'+
+                        '<div id="bodyContent">'+
+                        '<p><b>Address:</b> ' + location.address + '</p>' +
+                        '<p><b>Overall Rating:</b> ' + location.overallRating + '/10</p>' +
+                        '<p><b>Review:</b> ' + location.comment + '</p>'+
+                        '</div>'+
+                        '</div>';
+                
+
+
+                        const marker = new google.maps.Marker({
+                            position: coords,
+                            map: map,
+                            icon:  location.overallRating > 5 ? "http://maps.google.com/mapfiles/ms/icons/blue.png" : "http://maps.google.com/mapfiles/ms/icons/red.png"
+                        });
+                    
+                        google.maps.event.addListener(marker, 'click', function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map, this);
+                        });
+
+                    }  else { // if status value is not equal to "google.maps.GeocoderStatus.OK"
+
+                        // warning message
+                        alert("The Geocode was not successful for the following reason: " + status);
+                    }
+                });
+            }
+        })
+        .catch(error => console.log(error));
 }
 
