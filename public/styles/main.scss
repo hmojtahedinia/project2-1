@@ -5,11 +5,18 @@ $colors:(
     primary: #474646,
     secondary: #D3D0D0,
     accent:white, 
+    starBack:#ddd,
+    starRate:#FFD700,
+    accent2: black,
     );
 @function color($color-name){
     @return map-get($colors,$color-name)
 };
 
+$btnFonts: Merriweather, Georgia, "Times New Roman", serif;
+$titleFonts: Merriweather, Georgia, "Times New Roman", serif;
+$monoFonts:"Source Code Pro", Courier, mono;
+$otherFonts: "Source Sans Pro", Helvetica, Verdana, sans-serif;
 $border-radius:40px;
 /*media queries for various view port sizes*/
 $desktop:840px;
@@ -40,7 +47,7 @@ body{
     margin-right: 10px;
 }
 .btn-default {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: $btnFonts;
     font-size: 30px;
     color: color(secondary);
     padding: 15px;
@@ -95,10 +102,8 @@ body{
 /*==================================================================================================================================================================
     INDEX page
 ====================================================================================================================================================================*/
-
 #map{
-    height: 700px;
-    
+    height: 700px;    
 }
 .navbar{
     background-color:color(primary);
@@ -122,7 +127,6 @@ body{
     @include mobile{
         float:left;
     }
-
     form{
         border:2px solid color(secondary);
         border-radius: 40px;
@@ -177,6 +181,39 @@ body{
         float:left;
     }
 }
+
+/*==================================================================================================================================================================
+    Star rating widget
+====================================================================================================================================================================*/
+.rating { 
+    border: none;
+    float: left;
+  }
+  .rating > input { display: none; } 
+  .rating > label:before { 
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+  }
+  .rating > .half:before { 
+    content: "\f089";
+    position: absolute;
+  }
+  .rating > label { 
+    color: color(starBack);
+   float: right; 
+  }
+  /*Highlight Stars on Hover*/
+  .rating > input:checked ~ label, /* show highlighted star when clicked */
+  .rating:not(:checked) > label:hover, /* hover current star */
+  .rating:not(:checked) > label:hover ~ label { color: color(starRate);  } /* hover previous stars in list */
+
+  .rating > input:checked + label:hover, /* hover current star when changing rating */
+  .rating > input:checked ~ label:hover,
+  .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+  .rating > input:checked ~ label:hover ~ label { color: color(accent);  } 
 /*==================================================================================================================================================================
     Userpage Styling
 ====================================================================================================================================================================*/
@@ -187,7 +224,7 @@ body{
     .signInHeading{
         text-align: center;
         color:color(accent);
-        font-family:'Times New Roman', Times, serif;
+        font-family: $btnFonts;
     }
     .userinput{
         border-radius: $border-radius;
@@ -209,41 +246,34 @@ body{
 .btnContainer{
     text-align:center;
 }
-
 /*==================================================================================================================================================================
     Add WC Styling
 ====================================================================================================================================================================*/
 // #profile{
-
 //     padding:20px;
-
 //     #profilePic{
 //         border-radius: 100px;
 //         height: 200px;
 //         width:200px;
 //         border:2px solid color(accent);
 //     }
-
 //     #profileName {
 //         margin-top:20px;
 //         padding-left: 60px;
 //         color: color(accent);
-//         font-family:'Times New Roman', Times, serif;
+//         font-family: $titleFonts;
 //     }
-
 // }
-
 .addWC{
     margin:20px;
     margin-left: 33%;
-
     #uploadWcPic{
         background-color:color(accent);
     }
     .formTitle{
         text-align: center;
         color:color(accent);
-        font-family:'Times New Roman', Times, serif;
+        font-family:$titleFonts;
         font-size: 30px;
     }
     .userinput, #inputRating{
@@ -257,7 +287,6 @@ body{
         color:color(accent);
     }
 }
-
 .btnContainer{
     text-align:center;
 }

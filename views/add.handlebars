@@ -6,26 +6,21 @@
 
 <div class="container col-lg-4 addWC">
     <label for="inputRating" class="formTitle">Add a Washroom</label>
-
         <form class="form">
             <input type="location" id="inputLocation" class="form-control userinput" placeholder="Location" required autofocus>
-                <label for="inputRating" class="formTitle">Rating</label>
-                <select class="form-control" id="inputRating" placeholder="Rating">
-{{!-- rating nesting and if esle etc and other handlebars will be needed here to communicate with SQL will add later. --}}
-                    <option id="10">5 stars</option>
-                    <option id="9">4.5 stars</option>
-                    <option id="8">4 stars</option>
-                    <option id="7">3.5 stars</option>
-                    <option id="6">3 stars</option>
-                    <option id="5">2.5 stars</option>
-                    <option id="4">2 stars</option>
-                    <option id="3">1.5 stars</option>
-                    <option id="2">1 star</option>
-                    <option id="1">0 stars</option>
-                </select>
-                    <br><br>
-
-    </form>   
+                <fieldset class="rating">
+                    <input type="radio" id="10" name="rating" value="10" /><label class = "full" for="10" title="5 stars"></label>
+                    <input type="radio" id="9" name="rating" value="9" /><label class="half" for="9" title="4.5 stars"></label>
+                    <input type="radio" id="8" name="rating" value="8" /><label class = "full" for="8" title="4 stars"></label>
+                    <input type="radio" id="7" name="rating" value="7" /><label class="half" for="7" title="3.5 stars"></label>
+                    <input type="radio" id="6" name="rating" value="6" /><label class = "full" for="6" title="3 stars"></label>
+                    <input type="radio" id="5" name="rating" value="5" /><label class="half" for="5" title="2.5 stars"></label>
+                    <input type="radio" id="4" name="rating" value="4" /><label class = "full" for="4" title="2 stars"></label>
+                    <input type="radio" id="3" name="rating" value="3" /><label class="half" for="3" title="1.5 stars"></label>
+                    <input type="radio" id="2" name="rating" value="2" /><label class = "full" for="2" title="1 star"></label>
+                    <input type="radio" id="1" name="rating" value="1" /><label class="half" for="1" title="0.5 stars"></label>
+                </fieldset>
+        </form>   
     <br><br>
     <div class="container btnContainer" >
         <a href="addWC.html"><button class="btn btn-default" type="submit" id="userpageSubmit">Submit</button></a>
