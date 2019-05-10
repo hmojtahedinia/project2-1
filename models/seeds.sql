@@ -1,6 +1,6 @@
 USE washroomDb;
 
-INSERT INTO washrooms (nameOfPlace, address, overalRating, comment)
+INSERT INTO washrooms (nameOfPlace, address, overallRating, comment)
 VALUES ('Kinton Ramen', '90 Eglinton Ave. East, Unit 108', 7, 'The soap seemed to be very watered down. Bonus points for the complimentary mouth wash and tooth picks. Would definitely poop again.'),
 		('Han Ba Tang', '4862 Yonge Street', 7, ' I found it very weird that the inside of the stalls did not match the same rustic wood panelling as the rest of the bathroom.'),
         ('Pancho y Emiliano', '291 King Street West', 7, 'Absolutely spotless, apart from single piece of toilet paper next to the toilet. Loved the subway tiles and the vintage hand dryer. Bonus points for having both paper towel and hand dryer. Would definitely poop again.'),

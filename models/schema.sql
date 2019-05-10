@@ -13,7 +13,7 @@ CREATE TABLE ratingsTable (
 id INT NOT NULL AUTO_INCREMENT ,
 nameOfPlace VARCHAR(255) NOT NULL,
 address VARCHAR(255) NOT NULL,
-overalRating INTEGER(1) NOT NULL,
+overallRating INTEGER(1) NOT NULL,
 comment VARCHAR(255),
 PRIMARY KEY (id) 
 );
