@@ -1,0 +1,71 @@
+<h1>Washrooms</h1>
+    <div class="col-md-8">
+    <table class="table table-striped table-hover">
+
+    <thead>
+
+        <tr>
+
+            <th>Name
+
+            <th>Address
+
+            <th>Rating
+
+            <th>Comment
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {{#each rows}}
+
+            <tr>
+
+                <td>{{this.nameOfPlace}}
+
+                <td>{{this.address}}
+
+                <td>{{this.overallRating}}
+
+                <td>{{this.comment}}
+
+            </tr>
+
+        {{/each}}
+
+    </tbody>
+
+</table>
+</div>
+<div class="col-md-4">
+<form role="form" action="/Donors/business" method="POST">
+
+    <fieldset>
+
+        <legend>Rated washrooms in your area</legend>
+
+            <div class="form-group">
+
+                <label for="Specific_donor">Rate a Specific Washroom</label>
+
+                <select class="form-control" name="washroom_id" id="washroom_id">
+
+                    <option>selece washrooms</option>
+
+                        {{#each washroom}}
+
+                                <option value={{this.nameOfPlace}}>{{this.address}}>{{this.overallRating}}</option>
+
+                        {{/each}}
+
+                </select>
+
+            <input type="submit" id="washroomselect" class="btn btn-primary">
+
+    </fieldset>
+
+</form>
+</div>
