@@ -1,23 +1,16 @@
 <h2>{{add}}</h2>
-{{!-- <div class="container container-fluid " id="profile">
-<img id="profilePic" src="images/rolls.PNG" class="img-fluid">
-<p id="profileName">Hello Debra</p>
-</div> --}}
+
 <div class="container col-lg-1">
 <img class="img-fluid" src="/styles/images/singleRoll.PNG" alt="roll" id="roll">
 </div>
 
 <div class="container col-lg-4 addWC">
     <label for="inputRating" class="formTitle">Add a Washroom</label>
-{{!-- <form action="upload.php" method="post" enctype="multipart/form-data">
- Select image to upload:
-<input type="file" name="fileToUpload" id="fileToUpload">
-<input type="submit" value="Upload Image" name="submit">
-</form> --}}
+
         <form class="form">
             <input type="location" id="inputLocation" class="form-control userinput" placeholder="Location" required autofocus>
                 <label for="inputRating" class="formTitle">Rating</label>
-                    <select class="form-control" id="inputRating" placeholder="Rating">
+                <select class="form-control" id="inputRating" placeholder="Rating">
 {{!-- rating nesting and if esle etc and other handlebars will be needed here to communicate with SQL will add later. --}}
                     <option id="10">5 stars</option>
                     <option id="9">4.5 stars</option>
@@ -31,18 +24,7 @@
                     <option id="1">0 stars</option>
                 </select>
                     <br><br>
-<!-- <label>
-<input type="checkbox" value="clean" name="rate"> Clean</label>
-<label>
-<input type="checkbox" value="ventellation" name="rate"> Ventellation</label>
-<label>
-<input type="checkbox" value="handDryer" name="rate"> Hand Dryer</label>
-<label>
-<input type="checkbox" value="multiStall" name="rate"> Multi Stall</label>
-<label>
-<input type="checkbox" value="wideCounter" name="rate"> Wide Counter</label>
-<label>
-<input type="checkbox" value="brightLighting" name="rate"> Bright Lighting</label> -->
+
     </form>   
     <br><br>
     <div class="container btnContainer" >
@@ -51,7 +33,6 @@
 </div> 
 <br>
 
-{{!-- Page decorations --}}
 <span>
 <img class="img-fluid" src="/styles/images/logo.PNG" alt="logo" id="logoSub">
 </span>
@@ -59,5 +40,4 @@
 <img class="img-fluid" src="/styles/images/rolls.PNG" alt="logo" id="rollSub">
 </span>
 
-{{!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> --}}
   
