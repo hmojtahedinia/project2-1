@@ -103,11 +103,25 @@ body{
     border-radius: $border-radius;
 }
 
-.blankBox{
+.blankBox {
     height: 300px;
     border-radius: $border-radius;
     background-color: color(accent);
     color:color(primary);
+}
+
+#comment{
+    height: 300px;
+    border-radius: $border-radius;
+    background-color: color(accent);
+    color:color(primary);
+
+}
+
+.miniBox{
+    font-family: $btnFonts;
+    font-style: $italics;
+    font-size: 18px;
 }
 
 /*==================================================================================================================================================================
