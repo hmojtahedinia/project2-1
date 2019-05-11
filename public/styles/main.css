@@ -22,7 +22,8 @@ body {
 }
 
 .btn-default {
-  font-family: Merriweather, Georgia, "Times New Roman", serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
   font-size: 30px;
   color: #D3D0D0;
   padding: 15px;
@@ -249,7 +250,8 @@ body {
 .userPage .signInHeading {
   text-align: center;
   color: white;
-  font-family: Merriweather, Georgia, "Times New Roman", serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
 }
 
 .userPage .userinput {
@@ -290,7 +292,8 @@ body {
 .addWC .formTitle {
   text-align: center;
   color: white;
-  font-family: Merriweather, Georgia, "Times New Roman", serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
   font-size: 30px;
 }
 
