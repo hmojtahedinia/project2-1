@@ -11,7 +11,14 @@ module.exports = function(app) {
 
 	// Create a new washroom
 	app.post("/api/washrooms", function(req, res) {
-		db.Washroom.create(req.body).then(function(dbwashroom) {
+
+		const data = req.body;
+		data.overallRating = parseInt(data.overallRating);
+		
+		console.log(data);
+		
+		db.Washroom.create(data).then(function(dbwashroom) {
+			
 			res.json(dbwashroom);
 		});
 	});

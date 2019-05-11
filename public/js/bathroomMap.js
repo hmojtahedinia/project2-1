@@ -91,7 +91,7 @@ function initMap() {
                         const marker = new google.maps.Marker({
                             position: coords,
                             map: map,
-                            icon:  location.overallRating > 5 ? "http://maps.google.com/mapfiles/ms/icons/blue.png" : "http://maps.google.com/mapfiles/ms/icons/red.png"
+                            icon:  location.overallRating > 5 ? "http://maps.google.com/mapfiles/ms/icons/green.png" : "http://maps.google.com/mapfiles/ms/icons/red.png"
                         });
                     
                         google.maps.event.addListener(marker, 'click', function() {
