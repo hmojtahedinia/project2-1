@@ -9,8 +9,8 @@
     <h2 class="form-signin-heading signInHeading">REGISTER</h2>
       <label for="newUserName" class="sr-only">Choose a User Name</label>
       <input type="newuserName" id="newUserName" class="form-control userinput" placeholder="Choose a User Name" required autofocus>
-      <label for="newPassword" class="sr-only">Choose a Password</label>
-      <input type="newpassword" id="newPassword" class="form-control userinput" placeholder="Choose a Password" required>
+      <label for="inputPassword" class="sr-only">CheePassword</label>
+      <input type="password" id="inputPassword" class="form-control userinput" placeholder="Password" Choose a password>
       <div class="container container-fluid" id="termsConditions">
         <b>Terms and Conditions Agreement</b>
           <p>
@@ -31,6 +31,7 @@
       </div>
   </form>
     <div class="container btnContainer" >
+      {{!-- {{#if user}} --}}
     <a href="/add"><button class="btn btn-default" type="submit" id="userpageSubmit">Submit</button></a>
   </div>
 </div> 
