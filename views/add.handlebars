@@ -1,12 +1,11 @@
-<h2>{{add}}</h2>
-
+<h2></h2>
 <div class="container col-lg-1">
 <img class="img-fluid" src="/styles/images/singleRoll.PNG" alt="roll" id="roll">
 </div>
-
 <div class="container col-lg-4 addWC">
     <label for="inputRating" class="formTitle">Add a Washroom</label>
         <form class="form">
+            <input type="name" id="inputName" class="form-control userinput" placeholder="Name" required autofocus>
             <input type="location" id="inputLocation" class="form-control userinput" placeholder="Location" required autofocus>
                 <fieldset class="rating">
                     <input type="radio" id="10" name="rating" value="10" /><label class = "full" for="10" title="5 stars"></label>
@@ -20,15 +19,15 @@
                     <input type="radio" id="2" name="rating" value="2" /><label class = "full" for="2" title="1 star"></label>
                     <input type="radio" id="1" name="rating" value="1" /><label class="half" for="1" title="0.5 stars"></label>
                 </fieldset>
+                <input type="comment" id="comment" class="form-control container-fluid userinput" placeholder="Write a comment" required autofocus>
+                {{!-- fix to expand comment box style. do not change ID's on page all wired to js add class terms and conditions instead of ID --}}
         </form>   
     <br><br>
-    {{!-- comment box needed to flow comments through to SQL --}}
     <div class="container btnContainer" >
-        <a href="addWC.html"><button class="btn btn-default" type="submit" id="userpageSubmit">Submit</button></a>
+        <a href="/"><button class="btn btn-default" type="submit" id="userpageSubmit">Submit</button></a>
     </div>    
 </div> 
 <br>
-
 <span>
 <img class="img-fluid" src="/styles/images/logo.PNG" alt="logo" id="logoSub">
 </span>
@@ -36,4 +35,4 @@
 <img class="img-fluid" src="/styles/images/rolls.PNG" alt="logo" id="rollSub">
 </span>
 
-  
+<script src="js/addWashroom.js"></script>
