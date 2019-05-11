@@ -1,12 +1,11 @@
 /*==================================================================================================================================================================
     SASS functions & variables
 ====================================================================================================================================================================*/
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 /*media queries for various view port sizes*/
 /*==================================================================================================================================================================
     Uniform styling for pages
 ====================================================================================================================================================================*/
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
 html {
   overflow: auto;
 }
@@ -23,7 +22,8 @@ body {
 }
 
 .btn-default {
-  font-family: Merriweather, Georgia, "Times New Roman", serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
   font-size: 30px;
   color: #D3D0D0;
   padding: 15px;
@@ -82,6 +82,13 @@ body {
       -ms-flex-align: stretch;
           align-items: stretch;
   border-radius: 40px;
+}
+
+.blankBox {
+  height: 300px;
+  border-radius: 40px;
+  background-color: white;
+  color: #474646;
 }
 
 /*==================================================================================================================================================================
@@ -243,7 +250,8 @@ body {
 .userPage .signInHeading {
   text-align: center;
   color: white;
-  font-family: Merriweather, Georgia, "Times New Roman", serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
 }
 
 .userPage .userinput {
@@ -284,7 +292,8 @@ body {
 .addWC .formTitle {
   text-align: center;
   color: white;
-  font-family: Merriweather, Georgia, "Times New Roman", serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
   font-size: 30px;
 }
 

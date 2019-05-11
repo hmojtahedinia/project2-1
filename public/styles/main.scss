@@ -1,6 +1,8 @@
 /*==================================================================================================================================================================
     SASS functions & variables
 ====================================================================================================================================================================*/
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 $colors:(
     primary: #474646,
     secondary: #D3D0D0,
@@ -13,8 +15,9 @@ $colors:(
     @return map-get($colors,$color-name)
 };
 
-$btnFonts: Merriweather, Georgia, "Times New Roman", serif;
-$titleFonts: Merriweather, Georgia, "Times New Roman", serif;
+$btnFonts: Verdana, Geneva, Tahoma, sans-serif;
+$italics: italic;
+$titleFonts: Verdana, Geneva, Tahoma, sans-serif;;
 $monoFonts:"Source Code Pro", Courier, mono;
 $otherFonts: "Source Sans Pro", Helvetica, Verdana, sans-serif;
 $border-radius:40px;
@@ -48,6 +51,7 @@ body{
 }
 .btn-default {
     font-family: $btnFonts;
+    font-style: $italics;
     font-size: 30px;
     color: color(secondary);
     padding: 15px;
@@ -97,6 +101,13 @@ body{
     display: flex;
     align-items: stretch;
     border-radius: $border-radius;
+}
+
+.blankBox{
+    height: 300px;
+    border-radius: $border-radius;
+    background-color: color(accent);
+    color:color(primary);
 }
 
 /*==================================================================================================================================================================
@@ -225,6 +236,7 @@ body{
         text-align: center;
         color:color(accent);
         font-family: $btnFonts;
+        font-style: $italics;
     }
     .userinput{
         border-radius: $border-radius;
@@ -274,6 +286,7 @@ body{
         text-align: center;
         color:color(accent);
         font-family:$titleFonts;
+        font-style: $italics;
         font-size: 30px;
     }
     .userinput, #inputRating{
