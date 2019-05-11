@@ -22,11 +22,14 @@ app.set("view engine", "handlebars");
 
 //Routes for Hanlebars (HOLLY)
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { 
+      title: 'Home Page - Where to Go' 
+      //{{this.address}} how to flow the google maps API data into the handlebar to place in index modal with image if possible.
+    });
 });
 
-app.get('/map', (req, res) => {
-  res.render('map');
+app.get('/about', (req, res) => {
+  res.render('about');
 });
 
 app.get('/newuser', (req, res) => {
