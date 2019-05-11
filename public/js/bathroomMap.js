@@ -1,4 +1,4 @@
-import { appendFile } from "fs";
+// import { appendFile } from "fs";
 
 // Declare global variables
 let map;
@@ -85,7 +85,7 @@ function initMap() {
                         '<h1 id="firstHeading" class="firstHeading">' + location.nameOfPlace + '</h1>'+
                         '<div id="bodyContent">'+
                         '<p><b>Address:</b> ' + location.address + '</p>' +
-                        '<p><b>Overall Rating:</b> ' + '<img class=ministars src="/styles/images/star' + location.overallRating + '.png"></img>' +
+                        '<p><b>Overall Rating:</b> ' + '<img class="ministars" src="/styles/images/star'+ location.overallRating +'.png"></img>' +
                         '<p><b>Review:</b> ' + location.comment + '</p>'+
                         '</div>'+
                         '</div>';
@@ -110,6 +110,4 @@ function initMap() {
             }
         })
         .catch(error => console.log(error));
-
-
-
+}
