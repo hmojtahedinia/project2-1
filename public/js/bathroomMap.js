@@ -43,8 +43,8 @@ function initMap() {
                         '<div id="siteNotice">'+
                         '</div>'+
                         '<h1 id="firstHeading" class="firstHeading">' + location.nameOfPlace + '</h1>'+
-                        '<div id="bodyContent">'+
-                        '<p><b>Address:</b> ' + location.address + '</p>' +
+                        '<div id="bodyContent" class="miniBox">'+
+                        '<p class="miniBox"><b>Address:</b> ' + location.address + '</p>' +
                         '<p><b>Overall Rating:</b> ' + '<img class="ministars" src="/styles/images/star'+ location.overallRating +'.png"></img>' +
                         '<p><b>Review:</b> ' + location.comment + '</p>'+
                         '</div>'+

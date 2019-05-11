@@ -103,11 +103,25 @@ body{
     border-radius: $border-radius;
 }
 
-.blankBox{
+.blankBox {
     height: 300px;
     border-radius: $border-radius;
     background-color: color(accent);
     color:color(primary);
+}
+
+#comment{
+    height: 300px;
+    border-radius: $border-radius;
+    background-color: color(accent);
+    color:color(primary);
+
+}
+
+.miniBox{
+    font-family: $btnFonts;
+    font-style: $italics;
+    font-size: 18px;
 }
 
 /*==================================================================================================================================================================
@@ -131,17 +145,18 @@ body{
     position:fixed;
     text-align: center;
     top: 10px;
-    background:transparent;
+    background: transparent;
     padding:5px;
     margin:5px;
-
+     
     @include mobile{
         float:left;
     }
     form{
         border:2px solid color(secondary);
         border-radius: 40px;
-        width: 500px;
+        width: 350px;
+        background:rgba(0,0,0, .2);
     }
 }
 
