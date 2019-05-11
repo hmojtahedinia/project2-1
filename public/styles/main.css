@@ -129,7 +129,8 @@ body {
 #searchParameters form {
   border: 2px solid #D3D0D0;
   border-radius: 40px;
-  width: 500px;
+  width: 350px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /*Hamburger menu is only visable on mobile ports*/
