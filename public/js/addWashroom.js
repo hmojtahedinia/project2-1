@@ -41,5 +41,7 @@ document.getElementById("userpageSubmit").addEventListener("click", (event) => {
     postAjax('/api/washrooms', sendData, function(data) { 
         console.log(data); 
     });
+
+    window.location.href = '/';
 });
 
