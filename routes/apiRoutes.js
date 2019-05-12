@@ -1,5 +1,7 @@
-/* eslint-disable prettier/prettier */
-var db = require("../models");
+require("dotenv").config();
+const db = require("../models");
+
+const axios = require("axios");
 
 module.exports = function(app) {
 	// Get all washrooms
@@ -12,13 +14,44 @@ module.exports = function(app) {
 	// Create a new washroom
 	app.post("/api/washrooms", function(req, res) {
 
-		const data = req.body;
-		data.overallRating = parseInt(data.overallRating);
+		const washroomData = req.body;
+		washroomData.overallRating = parseInt(washroomData.overallRating);
+
+		let geolocationQuery;
+		geolocationQuery = `https://geocoder.api.here.com/6.2/geocode.json?app_id=${process.env.APP_ID}&app_code=${process.env.APP_CODE}&searchtext=`;
+		geolocationQuery += encodeURIComponent(washroomData.address + ', Toronto, Canada');
+
+		console.log(geolocationQuery);
+		// make GET request to geolocater API to get lattitude and longitude
+		axios.get(geolocationQuery).then(response => {
+
+			const coords = response.data.Response.View[0].Result[0].Location.DisplayPosition;
+
+			washroomData.latitude = parseFloat(coords.Latitude);
+			washroomData.longitude = parseFloat(coords.Longitude);
+
+			console.log(washroomData);
 		
-		console.log(data);
-		
-		db.Washroom.create(data).then(function(dbwashroom) {
-			res.json(dbwashroom);
+			db.Washroom.create(washroomData).then(function(dbwashroom) {
+				res.json(dbwashroom);
+			});
+
+		}).catch(error => {
+			if (error.response) {
+			// The request was made and the server responded with a status code
+			// that falls out of the range of 2xx
+			console.log(error.response.data);
+			console.log(error.response.status);
+			console.log(error.response.headers);
+			} else if (error.request) {
+			// The request was made but no response was received
+			// `error.request` is an object that comes back with details pertaining to the error that occurred.
+			console.log(error.request);
+			} else {
+			// Something happened in setting up the request that triggered an Error
+			console.log("Error", error.message);
+			}
+			console.log(error.config);
 		});
 	});
 
