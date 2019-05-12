@@ -42,7 +42,7 @@ function initMap() {
             const marker = new google.maps.Marker({
                 position: latLong,
                 map: map,
-                icon: washroom.overallRating > 5 ? "http://maps.google.com/mapfiles/ms/icons/green.png" : "http://maps.google.com/mapfiles/ms/icons/red.png"
+                icon: washroom.overallRating > 5 ? "https://maps.google.com/mapfiles/ms/icons/green.png" : "https://maps.google.com/mapfiles/ms/icons/red.png"
             });
             
             // Add event listner to toggle infoWindow when any marker is clicked
