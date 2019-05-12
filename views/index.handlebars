@@ -1,6 +1,5 @@
 <!-- Top bar Button-->
   <div id="content">
-
 <!-- Hamburger Button-->
   <nav class="navbar navbar-expand-lg justify-content-between">
     <div class="container-fluid">
@@ -12,17 +11,12 @@
 </div>
 
 <!-- Search Parameters-->
-<div class=" container input-container justify-content-between col-sm-12" id="searchParameters">
+<div class=" container input-container " id="searchParameters">
   <form class="form-inline">
     <button type="submit" id="search" class="btn"><i class="fas fa-search"></i></button>
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                 
-<!-- Triggers the filter modal-->
-    <button type="button" class="btn" data-toggle="modal" data-target="#locationFilter" id="filter"><i class="fas fa-filter"></i></button>
-
-<!-- Triggers the WC Address modal-->
-    <button type="button" class="btn" data-toggle="modal" data-target="#wcLocation" id="wcAdress"><i class="fas fa-compass"></i></button>
-  </form>
+    <button type="submit" id="search" class="btn"><i class="fas fa-filter"></i></button>
+    </form>
 </div>
 
 <!-- wrap contents in bootstrap wrapper class so contents inside will expand as viewport expands/shrinks -->
@@ -30,26 +24,21 @@
             
 <!-- Sidebar -->
   <nav id="sidebar">
-    <div class="sidebar-header">
-        <img class="img-fluid" src="/styles/images/logo.PNG" alt="logoName" id="logoName">
-    </div>
+    <!-- Logo-->
+<img class="img-fluid" src="/styles/images/logo.PNG" alt="logo" id="logoSub">
         <ul class="list-unstyled components">
           <li>
           <a href="/about"><button type="button" class="btn btn-default">How it works</button></a> 
           </li>
           <li>
-          <a href="/newuser"><button type="button" class="btn btn-default">Register</button></a> 
-          {{!-- Logic needs to be added to show the Add page one Register and log in are completed --}}
-          </li>
-          <li>
-          <a href="/login"><button type="button" class="btn btn-default">Log in</button></a> 
+          <a href="/add"><button type="button" class="btn btn-default">Add a Rating</button></a> 
           {{!-- Logic needs to be added to show the Add page one Register and log in are completed --}}
           </li>
         </ul>
   </nav>
         
 <!-- Page Content -->
-  <div id="content" class=" container container-fluid card-body col-sm-12" >
+  <div id="content" class=" container container-fluid" >
     <div id="map"></div>
     </div>
   </div>  
@@ -105,6 +94,8 @@
     </div>
   </div>
 </div>
+
+
 
   <script src="/js/bathroomMap.js"></script>
   <script async defer

@@ -18,7 +18,6 @@ module.exports = function(app) {
 		console.log(data);
 		
 		db.Washroom.create(data).then(function(dbwashroom) {
-			
 			res.json(dbwashroom);
 		});
 	});

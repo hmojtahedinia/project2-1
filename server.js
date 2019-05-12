@@ -23,34 +23,38 @@ app.set("view engine", "handlebars");
 //Routes for Hanlebars (HOLLY)
 app.get('/', (req, res) => {
     res.render('index', { 
-      title: 'Home Page - Where to Go' 
-      //{{this.address}} how to flow the google maps API data into the handlebar to place in index modal with image if possible.
+      title: 'Where to Go Toronto' 
     });
 });
 
 app.get('/about', (req, res) => {
-  res.render('about');
-});
-
-app.get('/newuser', (req, res) => {
-  res.render('newuser');
-});
-
-app.get('/login', (req, res) => {
-  res.render('login');
+  res.render('about', {
+    title: 'How it works'
+  });
 });
 
 app.get('/add', (req, res) => {
-  res.render('add');
+  res.render('add',{
+    title: 'Rate a Washroom'
+  });
 });
 
-app.get('/rate', (req, res) => {
-  res.render('rate');
-});
+//For later intigration of Login Pages
+// app.get('/newuser', (req, res) => {
+//   res.render('newuser');
+// });
 
-app.get('/404', (req, res) => {
-  res.render('404');
-});
+// app.get('/login', (req, res) => {
+//   res.render('login');
+// });
+
+// app.get('/rate', (req, res) => {
+//   res.render('rate');
+// });
+
+// app.get('/404', (req, res) => {
+//   res.render('404');
+// });
 
 // Routes
 require("./routes/apiRoutes")(app);
