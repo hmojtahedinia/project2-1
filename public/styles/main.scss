@@ -1,6 +1,7 @@
 /*==================================================================================================================================================================
     SASS functions & variables
 ====================================================================================================================================================================*/
+// importing font awesome library for star rating
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 $colors:(
@@ -14,18 +15,24 @@ $colors:(
 @function color($color-name){
     @return map-get($colors,$color-name)
 };
-
+//variables
 $btnFonts: Verdana, Geneva, Tahoma, sans-serif;
 $italics: italic;
 $titleFonts: Verdana, Geneva, Tahoma, sans-serif;;
 $monoFonts:"Source Code Pro", Courier, mono;
 $otherFonts: "Source Sans Pro", Helvetica, Verdana, sans-serif;
 $border-radius:40px;
-/*media queries for various view port sizes*/
-$desktop:840px;
+$desktop:1024px;
+$tablet:768px;
 $mobile:380px;
-@mixin desktop{
-    @media(min-width: #{$desktop}) {
+// /media queries for various view port sizes
+// @mixin desktop{
+//     @media(min-width: #{$desktop}) {
+//         @content;
+//     }
+// }
+@mixin tablet{
+    @media(max-width: #{$tablet}) {
         @content;
     }
 }
@@ -35,7 +42,7 @@ $mobile:380px;
     }
 }
 /*==================================================================================================================================================================
-    Uniform styling for pages
+    Repeat styling used throughout all pages
 ====================================================================================================================================================================*/
 html{
     overflow:auto;
@@ -44,25 +51,33 @@ body{
     background-color: color(primary);
     overflow:auto;
 }
-/*btn links & submit btns*/
-.btn {
-    margin-left: 10px;
-    margin-right: 10px;
+footer{
+    position:fixed;
+    left: 30%;
+    bottom:0px;
+    color:color(accent);
+    font-size:10px;
+    width:100%;
+    margin-top:20px;
+    z-index: -1;
+    @include mobile{
+        font-size: 5px;
+        left: 20%;
+    }
 }
+// btn links & submit btns
 .btn-default {
     font-family: $btnFonts;
     font-style: $italics;
     font-size: 30px;
     color: color(secondary);
     padding: 15px;
- 
     line-height: 15px;
     border: 2px solid color(accent);
     border-radius: 40px;
     background: color(accent);
     transition: all 0.3s ease 0s;
     margin: 10px;
-
     @include mobile{
         font-size: 18px;
         width: 150px;
@@ -73,47 +88,90 @@ body{
     background: color(accent);
     border: 2px solid color(accent);
 }
+.btn{
+    background-color:transparent;
+    border-color:transparent;
+    font-size: 30px;
+    @include mobile{
+        font-size: 18px;
+    }
+}
+#back{
+    @include mobile{
+        font-size: 12px;
+    }
 
-// /*Time to GO logo*/
-// #logoName{
-//     width: 250px;
-//     height: 150px;
-//     padding-left:20px;
-
-// }
-/*the 3 toilet rolls image & logo*/
+}
+// Time to Go logo
 #logoSub{
-    position:fixed;
-    z-index:2;
     width: 250px;
     height: 200px;
-    top:0px;
+    top:-100px;
     left: 0px;
     padding:40px;
     background-color:color(primary);
 }
+#logoSub2{
+    position:fixed;
+    width: 200px;
+    height: 100px;
+    bottom:0px;
+    left: 20px;
+        @include mobile{
+        visibility:hidden;
+        }   
+}
+// 3 toilet roll logo
 #rollSub{
     position:fixed;
     width: 100px;
     height: 100px;
     bottom:0px;
     right: 20px;
+    @include mobile{
+    visibility:hidden;
+    }   
 }
-/*wrapps whole page*/
+// 1 toilet roll logo
+#rollLogo{
+    position:fixed;
+    top:10px;
+    left:45%;
+    margin-bottom:20px;
+    width: 100px;
+    height: 100px;
+    @include mobile{
+        margin:10px;
+        left:38%;
+        width: 80px;
+        height: 80px;
+    }    
+    }
+// div wrapping
 .wrapper {
     display: flex;
     align-items: stretch;
     border-radius: $border-radius;
 }
-
 .blankBox {
     height: 350px;
     border-radius: $border-radius;
     background-color: color(accent);
     color:color(primary);
     font-size: 15px;
-}
+    text-align:center;
+    @include tablet{
+        padding: 5px;
+    }
+    @include mobile{
+        padding: 5px;
+        font-size: 12px;
+        h5{
+            font-size: 15px;
 
+        }
+    }
+}
 #comment{
     height: 300px;
     border-radius: $border-radius;
@@ -121,29 +179,36 @@ body{
     color:color(primary);
 
 }
-
 .miniBox{
     font-family: $btnFonts;
     font-style: $italics;
     font-size: 18px;
 }
-
 /*==================================================================================================================================================================
     INDEX page
 ====================================================================================================================================================================*/ 
-#map{
-    height: 700px;
-    }
-
+#content {
+    border-radius: $border-radius;
+    margin-right: 0px;
+    
+    #map{
+        top: 10%;
+        height: 700px;
+        margin-bottom: 80px;
+        @include tablet{
+            top: 15%;
+            height: 700px;
+        }    
+        @include mobile{
+            top: 18%;
+            height: 500px;
+        }
+        }
+}
 .navbar{
     background-color:color(primary);
 }
-.btn{
-    background-color:transparent;
-    border-color:transparent;
-    font-size: 30px;
-}
-/*bar contains search form, filter button & address display button*/
+// bar contains search form & filter btn
 #searchParameters{
     z-index:2;
     left: 40%;
@@ -153,23 +218,49 @@ body{
     background: transparent;
     padding:5px;
     margin:5px;
-     
+    width: 300px;
+    @include tablet{
+        left: 0%;
+        top: 70px;
+    }    
     @include mobile{
-        float:left;
+        left: 0%;
+        top: 70px;
     }
+
     form{
         border:2px solid color(secondary);
         border-radius: 40px;
         width: 380px;
         background:rgba(0,0,0, .2);
+        @include tablet{
+
+            font-size:15px;
+            width: 360px;
+        }    
+        @include mobile{
+      
+            font-size:8px;
+            width: 300px;
+        }
+    }
+
+    .form-control{
+        @include tablet{
+            width:180px;
+        }    
+        @include mobile{
+            width:180px;
+        }
     }
 }
-
-/*Hamburger menu is only visable on mobile ports*/
-/*toggling of side-bar (contains links to logIn/Register page)*/
+// Hamburger menu is only visable on mobile ports
+// toggling of side-bar 
 #sidebarCollapse{
     visibility: hidden;
-    
+    @include tablet{
+        visibility: visible;
+    }
     @include mobile{
         visibility: visible;
     }
@@ -186,36 +277,27 @@ body{
 }
 #sidebar {
     z-index:2;
-    position:fixed;
-    margin-top:100px;
+    position:relative;
     min-width: 250px;
     max-width: 250px;
-    min-height: 100vh;
+    height: 100%;
     background-color: color(primary);
-
+    @include tablet{
+        margin-left: -250px;
+    }
     @include mobile{
         margin-left: -250px;
     }
 }
 #sidebar.active {
     margin-left: -250px;
-
+    @include tablet{
+        margin-left: 0;
+    }
     @include mobile{
         margin-left: 0;
     }
 }
-
-/*Google Map display*/
-#content, #userLocationMap{
-    border-radius: 40px;
-    margin-right: 80px;
-    margin-top: 0px;
-
-    @include mobile{
-        float:left;
-    }
-}
-
 /*==================================================================================================================================================================
     Star rating widget
 ====================================================================================================================================================================*/
@@ -239,69 +321,64 @@ body{
     color: color(starBack);
    float: right; 
   }
-  /*Highlight Stars on Hover*/
-  .rating > input:checked ~ label, /* show highlighted star when clicked */
-  .rating:not(:checked) > label:hover, /* hover current star */
-  .rating:not(:checked) > label:hover ~ label { color: color(starRate);  } /* hover previous stars in list */
+//   Highlight Stars on Hover
+  .rating > input:checked ~ label, //show highlighted star when clicked 
+  .rating:not(:checked) > label:hover, //hover current star 
+  .rating:not(:checked) > label:hover ~ label { color: color(starRate);  } // hover previous stars in list 
 
-  .rating > input:checked + label:hover, /* hover current star when changing rating */
+  .rating > input:checked + label:hover, // hover current star when changing rating 
   .rating > input:checked ~ label:hover,
-  .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+  .rating > label:hover ~ input:checked ~ label, // lighten current selection 
   .rating > input:checked ~ label:hover ~ label { color: color(accent);  } 
+
 /*==================================================================================================================================================================
-    Userpage Styling
-====================================================================================================================================================================*/
-.userPage{
-    margin:20px;
-    margin-left: 33%;
-    text-align:center;
-    .signInHeading{
-        text-align: center;
-        color:color(accent);
-        font-family: $btnFonts;
-        font-style: $italics;
-    }
-    .userinput{
-        border-radius: $border-radius;
-        margin-top:20px;
-        margin-bottom:20px;
-    }
-    #termsConditions{
-        overflow:scroll;
-        height: 300px;
-        border-radius: $border-radius;
-        background-color: color(accent);
-        color:color(primary);
-    }
-    .checkbox{
-        margin-top:20px;
-        color:color(accent);
-    }
-}
-.btnContainer{
-    text-align:center;
-}
-/*==================================================================================================================================================================
-    Add a Rating
+    Add a Rating 
 ====================================================================================================================================================================*/
 .addWC{
     margin:20px;
     margin-left: 33%;
-
+    text-align: center;
+    @include tablet{
+        margin:10px;
+    }
+    @include mobile{
+        margin:10px;
+    }
     .formTitle{
-        text-align: center;
+        margin-top:30%;     
         color:color(accent);
         font-family:$titleFonts;
         font-style: $italics;
+        width: 380px;
         font-size: 30px;
+        border-radius: 40px;
+        background:rgba(0,0,0, .2);
+        @include tablet{
+            font-size:26px;
+            width: 280px;
+        }    
+        @include mobile{
+            font-size:28px;
+            width: 280px;
+        }
     }
     .userinput, #inputRating{
         border-radius: $border-radius;
         margin-top:20px;
         margin-bottom:20px;
     }
-
 }
 .btnContainer{
     text-align:center;
+}
+/*==================================================================================================================================================================
+    About Us
+====================================================================================================================================================================*/
+.about{
+    @include tablet{
+        margin-top:30%;
+    }
+    @include mobile{
+        margin-top:40%;
+    }
 }
