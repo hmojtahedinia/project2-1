@@ -36,6 +36,16 @@ body {
   margin: 10px;
 }
 
+.footer {
+  line-height: 1;
+  color: inherit;
+  font-size: 0.8em;
+  color: white;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  text-align: center;
+}
+
 @media (max-width: 380px) {
   .btn-default {
     font-size: 18px;
