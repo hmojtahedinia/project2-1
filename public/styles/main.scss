@@ -61,7 +61,7 @@ body{
     border-radius: 40px;
     background: color(accent);
     transition: all 0.3s ease 0s;
-    margin: 30px;
+    margin: 10px;
 
     @include mobile{
         font-size: 18px;
@@ -74,20 +74,23 @@ body{
     border: 2px solid color(accent);
 }
 
-/*Time to GO logo*/
-#logoName{
-    width: 250px;
-    height: 150px;
-    padding-left:20px;
+// /*Time to GO logo*/
+// #logoName{
+//     width: 250px;
+//     height: 150px;
+//     padding-left:20px;
 
-}
+// }
 /*the 3 toilet rolls image & logo*/
 #logoSub{
     position:fixed;
-    width: 200px;
-    height: 100px;
-    bottom:0px;
-    left: 20px;
+    z-index:2;
+    width: 250px;
+    height: 200px;
+    top:0px;
+    left: 0px;
+    padding:40px;
+    background-color:color(primary);
 }
 #rollSub{
     position:fixed;
@@ -104,10 +107,11 @@ body{
 }
 
 .blankBox {
-    height: 300px;
+    height: 350px;
     border-radius: $border-radius;
     background-color: color(accent);
     color:color(primary);
+    font-size: 15px;
 }
 
 #comment{
@@ -126,10 +130,11 @@ body{
 
 /*==================================================================================================================================================================
     INDEX page
-====================================================================================================================================================================*/
+====================================================================================================================================================================*/ 
 #map{
-    height: 700px;    
-}
+    height: 700px;
+    }
+
 .navbar{
     background-color:color(primary);
 }
@@ -155,7 +160,7 @@ body{
     form{
         border:2px solid color(secondary);
         border-radius: 40px;
-        width: 350px;
+        width: 380px;
         background:rgba(0,0,0, .2);
     }
 }
@@ -180,6 +185,9 @@ body{
     }
 }
 #sidebar {
+    z-index:2;
+    position:fixed;
+    margin-top:100px;
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
@@ -274,29 +282,12 @@ body{
     text-align:center;
 }
 /*==================================================================================================================================================================
-    Add WC Styling
+    Add a Rating
 ====================================================================================================================================================================*/
-// #profile{
-//     padding:20px;
-//     #profilePic{
-//         border-radius: 100px;
-//         height: 200px;
-//         width:200px;
-//         border:2px solid color(accent);
-//     }
-//     #profileName {
-//         margin-top:20px;
-//         padding-left: 60px;
-//         color: color(accent);
-//         font-family: $titleFonts;
-//     }
-// }
 .addWC{
     margin:20px;
     margin-left: 33%;
-    #uploadWcPic{
-        background-color:color(accent);
-    }
+
     .formTitle{
         text-align: center;
         color:color(accent);
@@ -309,11 +300,7 @@ body{
         margin-top:20px;
         margin-bottom:20px;
     }
-    .checkbox{
-        margin:20px;
-        padding:10px;
-        color:color(accent);
-    }
+
 }
 .btnContainer{
     text-align:center;

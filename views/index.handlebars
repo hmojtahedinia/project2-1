@@ -1,6 +1,5 @@
 <!-- Top bar Button-->
   <div id="content">
-
 <!-- Hamburger Button-->
   <nav class="navbar navbar-expand-lg justify-content-between">
     <div class="container-fluid">
@@ -11,11 +10,14 @@
   </nav>
 </div>
 
+
 <!-- Search Parameters-->
 <div class=" container input-container justify-content-between col-sm-12" id="searchParameters">
   <form class="form-inline">
     <button type="submit" id="search" class="btn"><i class="fas fa-search"></i></button>
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button type="submit" id="search" class="btn"><i class="fas fa-filter"></i></button>
+    </form>
 </div>
 
 <!-- wrap contents in bootstrap wrapper class so contents inside will expand as viewport expands/shrinks -->
@@ -23,9 +25,8 @@
             
 <!-- Sidebar -->
   <nav id="sidebar">
-    <div class="sidebar-header">
-        <img class="img-fluid" src="/styles/images/logo.PNG" alt="logoName" id="logoName">
-    </div>
+    <!-- Logo-->
+<img class="img-fluid" src="/styles/images/logo.PNG" alt="logo" id="logoSub">
         <ul class="list-unstyled components">
           <li>
           <a href="/about"><button type="button" class="btn btn-default">How it works</button></a> 
