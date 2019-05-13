@@ -15,6 +15,8 @@ function postAjax(url, data, success) {
   xhr.onreadystatechange = function() {
     if (xhr.readyState > 3 && xhr.status == 200) {
       success(xhr.responseText);
+    } else if (xhr.status !== 200) {
+      console.log('Request failed. Returned status of ' + xhr.status);
     }
   };
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
