@@ -24,7 +24,7 @@ $otherFonts: "Source Sans Pro", Helvetica, Verdana, sans-serif;
 $border-radius:40px;
 $desktop:1024px;
 $tablet:768px;
-$mobile:380px;
+$mobile:414px;
 // /media queries for various view port sizes
 // @mixin desktop{
 //     @media(min-width: #{$desktop}) {
@@ -121,6 +121,29 @@ footer{
         visibility:hidden;
         }   
 }
+#logoSub3{
+    visibility:hidden;
+    position:fixed;
+
+    z-index: -1;
+        @include tablet{
+            visibility:visible;
+            top:0px;
+            margin:10px;
+            left:70%;
+            width: 200px;
+            height: 100px;
+
+            }   
+        @include mobile{
+        visibility:visible;
+        width: 100px;
+        height: 50px;
+        top:0px;
+        margin:10px;
+        left:60%;
+        }   
+}
 // 3 toilet roll logo
 #rollSub{
     position:fixed;
@@ -179,11 +202,7 @@ footer{
     color:color(primary);
 
 }
-.miniBox{
-    font-family: $btnFonts;
-    font-style: $italics;
-    font-size: 18px;
-}
+
 /*==================================================================================================================================================================
     INDEX page
 ====================================================================================================================================================================*/ 
@@ -206,7 +225,7 @@ footer{
         }
 }
 .navbar{
-    background-color:color(primary);
+    background-color:transparent;
 }
 // bar contains search form & filter btn
 #searchParameters{
@@ -296,6 +315,35 @@ footer{
     }
     @include mobile{
         margin-left: 0;
+    }
+}
+
+// pop up modal with WC rating and comments
+#firstHeading{
+    @include tablet{
+        font-size: 18px;
+    }    
+    @include mobile{
+        font-size: 18px;
+    }
+}
+.miniBox{
+    font-family: $btnFonts;
+    font-style: $italics;
+    font-size: 18px;
+    @include tablet{
+        font-size: 15px;
+        .ministars{
+            height:30px;
+            width:154px;
+        }
+    }    
+    @include mobile{
+        font-size: 15px;
+        .ministars{
+            height:30px;
+            width:154px;
+        }
     }
 }
 /*==================================================================================================================================================================

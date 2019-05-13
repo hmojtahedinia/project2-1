@@ -1,7 +1,7 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "time-to-go-toronto",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
+  "description": "Time To Go TO is a public washroom rating and locating website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,13 +10,13 @@
     "fix": "eslint --fix .",
     "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "dotenv": "^6.0.0",
+    "axios": "^0.18.0",
+    "dotenv-safe": "^6.1.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "mysql2": "^1.6.5",
-    "nodemon": "^1.19.0",
     "sequelize": "^5.8.5",
     "sequelize-cli": "^5.4.0"
   },
@@ -27,6 +27,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
+    "nodemon": "^1.19.0",
     "prettier": "^1.13.7"
   }
 }
