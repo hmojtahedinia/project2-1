@@ -22,7 +22,7 @@ app.set("view engine", "handlebars");
 //Routes for Hanlebars (HOLLY)
 app.get('/', (req, res) => {
     res.render('index', { 
-      title: 'Where to Go Toronto' 
+      title: 'Time to Go Toronto' 
     });
 });
 
