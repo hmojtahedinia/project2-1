@@ -203,12 +203,6 @@ footer {
   color: #474646;
 }
 
-.miniBox {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-style: italic;
-  font-size: 18px;
-}
-
 /*==================================================================================================================================================================
     INDEX page
 ====================================================================================================================================================================*/
@@ -363,6 +357,43 @@ footer {
 @media (max-width: 414px) {
   #sidebar.active {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  #firstHeading {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 414px) {
+  #firstHeading {
+    font-size: 12px;
+  }
+}
+.miniBox {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .miniBox {
+    font-size: 15px;
+  }
+  .miniBox .ministars {
+    height: 20px;
+    width: 154px;
+  }
+}
+
+@media (max-width: 414px) {
+  .miniBox {
+    font-size: 10px;
+  }
+  .miniBox .ministars {
+    height: 20px;
+    width: 154px;
   }
 }
 
