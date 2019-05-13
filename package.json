@@ -1,7 +1,7 @@
 {
-  "name": "where-to-go-toronto",
+  "name": "time-to-go-toronto",
   "version": "1.0.0",
-  "description": "Where To Go TO is a public washroom rating and locating website",
+  "description": "Time To Go TO is a public washroom rating and locating website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
