@@ -368,10 +368,9 @@ footer {
 
 @media (max-width: 414px) {
   #firstHeading {
-    font-size: 18px;
+    font-size: 12px;
   }
 }
-
 .miniBox {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: italic;
@@ -383,17 +382,17 @@ footer {
     font-size: 15px;
   }
   .miniBox .ministars {
-    height: 30px;
+    height: 20px;
     width: 154px;
   }
 }
 
 @media (max-width: 414px) {
   .miniBox {
-    font-size: 15px;
+    font-size: 10px;
   }
   .miniBox .ministars {
-    height: 30px;
+    height: 20px;
     width: 154px;
   }
 }
