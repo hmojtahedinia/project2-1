@@ -16,7 +16,7 @@
   <form class="form-inline">
     <button type="submit" id="search" class="btn"><i class="fas fa-search"></i></button>
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button type="submit" id="search" class="btn"><i class="fas fa-filter"></i></button>
+    <button type="button" id="filter" class="btn" data-toggle="modal" data-target="#locationFilter"><i class="fas fa-filter"></i></button>
     </form>
 </div>
 
@@ -25,7 +25,7 @@
             
 <!-- Sidebar -->
   <nav id="sidebar">
-    <!-- Logo-->
+<!-- Logo-->
 <img class="img-fluid" src="/styles/images/logo.PNG" alt="logo" id="logoSub">
         <ul class="list-unstyled components">
           <li>
@@ -33,7 +33,6 @@
           </li>
           <li>
           <a href="/add"><button type="button" class="btn btn-default">Add a Rating</button></a> 
-          {{!-- Logic needs to be added to show the Add page one Register and log in are completed --}}
           </li>
         </ul>
   </nav>
@@ -52,10 +51,10 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Filter by rating of stars</h4>
+          <h4 class="modal-title">Search for a washroom by rating.</h4>
         </div>
             <div class="modal-body">           
-                <fieldset class="rating">
+                 <fieldset class="rating">
                     <input type="radio" id="10" name="rating" value="10" /><label class = "full" for="10" title="5 stars"></label>
                     <input type="radio" id="9" name="rating" value="9" /><label class="half" for="9" title="4.5 stars"></label>
                     <input type="radio" id="8" name="rating" value="8" /><label class = "full" for="8" title="4 stars"></label>
@@ -69,6 +68,7 @@
                 </fieldset>
             </div>
           <div class="modal-footer">
+            <button type="submit" class="btn btn-default" data-dismiss="modal">Submit</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
       </div>
