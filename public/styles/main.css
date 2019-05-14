@@ -246,10 +246,6 @@ footer {
   width: 300px;
 }
 
-.modal-body {
-  background-color: #474646;
-}
-
 @media (max-width: 768px) {
   #searchParameters {
     left: 0%;
@@ -371,9 +367,10 @@ footer {
 
 @media (max-width: 414px) {
   #firstHeading {
-    font-size: 12px;
+    font-size: 18px;
   }
 }
+
 .miniBox {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: italic;
@@ -385,17 +382,17 @@ footer {
     font-size: 15px;
   }
   .miniBox .ministars {
-    height: 20px;
+    height: 30px;
     width: 154px;
   }
 }
 
 @media (max-width: 414px) {
   .miniBox {
-    font-size: 10px;
+    font-size: 15px;
   }
   .miniBox .ministars {
-    height: 20px;
+    height: 30px;
     width: 154px;
   }
 }
@@ -499,10 +496,6 @@ footer {
   text-align: center;
 }
 
-#aboutUs {
-  margin-top: 40%;
-}
-
 /*==================================================================================================================================================================
     About Us
 ====================================================================================================================================================================*/
@@ -516,5 +509,9 @@ footer {
   .about {
     margin-top: 40%;
   }
+}
+
+#aboutUs {
+  margin-top: 40%;
 }
 /*# sourceMappingURL=main.css.map */
