@@ -20,6 +20,6 @@ VALUES ('Kinton Ramen', '90 Eglinton Ave. East, Unit 108', 43.70762, -79.39586, 
       ('Cluny Bistro & Boulangerie', '35 Tank House Lane', 43.65059, -79.3579, 7, '35 Tank House Lane', "2001-01-01 00:00:00.000", "2001-01-01 00:00:00.000"),
       ('The Office Pub', '7 King Street East', 43.64917, -79.37705, 7, 'Went on a Friday night so bathroom was a mess. Pro tip: when paper towel not available, use toilet paper to open door.', "2001-01-01 00:00:00.000", "2001-01-01 00:00:00.000"),
       ('Berkeley Church', '315 Queen Street East', 43.65508, -79.36596, 7, 'Beautiful venue, nice bathroom (2 stalls, 3 urinals, 2 sinks, full length mirror, etc.)', "2001-01-01 00:00:00.000", "2001-01-01 00:00:00.000"),
-      ('Beach Blast', '15 Leswyn Road', 43.71599, -79.46471, 6, 'As a person who dislikes the beach, this place was not my cup of tea. There was sand EVERYWHERE!', "2001-01-01 00:00:00.000", "2001-01-01 00:00:00.000")
+      ('Beach Blast', '15 Leswyn Road', 43.71599, -79.46471, 6, 'As a person who dislikes the beach, this place was not my cup of tea. There was sand EVERYWHERE!', "2001-01-01 00:00:00.000", "2001-01-01 00:00:00.000");
 
 SELECT * FROM washroomdb.washrooms;       
