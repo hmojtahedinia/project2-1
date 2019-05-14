@@ -247,6 +247,10 @@ footer {
   width: 300px;
 }
 
+.modal-body {
+  background-color: #474646;
+}
+
 @media (max-width: 768px) {
   #searchParameters {
     left: 0%;
