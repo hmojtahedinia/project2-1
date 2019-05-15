@@ -22,8 +22,7 @@ document.getElementById("userpageSubmit").addEventListener("click", (event) => {
         comment: comment.trim()
     };
     
-    postAjax('/api/washrooms', sendData, function(data) { 
-        console.log(data); 
+    postAjax('/api/washrooms', sendData, function(data) {
         window.location.href = '/';
     });
 });

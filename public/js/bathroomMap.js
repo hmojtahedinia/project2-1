@@ -1,15 +1,41 @@
 // Declare global variables
-let map;
+let map, infoWindow;
 
+//function handling geolocation errors
+function handleLocationError(browserHasGeolocation) {
+    alert(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+}
+
+// main Google Map initializing function
 function initMap() {
     // Grab InfoWindow object from Maps API
-    const infoWindow = new google.maps.InfoWindow();
+    infoWindow = new google.maps.InfoWindow();
 
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12.15,
         center: new google.maps.LatLng(43.68, -79.43),
         mapTypeId: 'terrain'
     });
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            map.setCenter(pos);
+            map.setZoom(14.5);
+        }, function() {
+            handleLocationError(true);
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false);
+    }
 
     // Get database info from server
    fetch('/api/washrooms').then(result => {
@@ -24,8 +50,6 @@ function initMap() {
             const washroom = washroomData[i];
 
             const latLong = {lat: washroom.latitude, lng: washroom.longitude};
-
-            console.log(latLong);
                         
             const contentString = '<div id="content">'+
                 '<div id="siteNotice">'+
@@ -52,5 +76,5 @@ function initMap() {
             });
         }
     })
-    .catch(error => console.log(error));
+    .catch(error => {if (error) throw error;});
 }

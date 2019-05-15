@@ -2,11 +2,28 @@ require("dotenv").config();
 const db = require("../models");
 
 const axios = require("axios");
+const Sequelize = require("sequelize");
+
+const Op = Sequelize.Op;
 
 module.exports = function(app) {
 	// Get all washrooms
 	app.get("/api/washrooms", function(req, res) {
 		db.Washroom.findAll({}).then(function(dbwashrooms) {
+			res.json(dbwashrooms);
+		});
+	});
+
+	app.get("/api/washrooms/:rating", function(req, res) {
+		const rating = req.params.rating;
+
+		db.Washroom.findAll({
+			where: {
+				overallRating: {
+					[Op.gte]: rating
+				}
+			}
+		}).then(function(dbwashrooms) {
 			res.json(dbwashrooms);
 		});
 	});
