@@ -13,7 +13,9 @@ function initMap() {
     // Grab InfoWindow object from Maps API
     infoWindow = new google.maps.InfoWindow();
 
-    map = new google.maps.Map(document.getElementById('map'), {
+    const mapDiv = document.getElementById('map');
+
+    map = new google.maps.Map(mapDiv, {
         zoom: 12.15,
         center: new google.maps.LatLng(43.68, -79.43),
         mapTypeId: 'terrain'
@@ -37,8 +39,15 @@ function initMap() {
         handleLocationError(false);
     }
 
+    const ratingFilter = parseInt(mapDiv.dataset.filter);
+    let queryUrl = '/api/washrooms';
+
+    if (ratingFilter <= 9) {
+        queryUrl += '/' + ratingFilter;
+    }
+
     // Get database info from server
-   fetch('/api/washrooms').then(result => {
+   fetch(queryUrl).then(result => {
         return result.json();
     })
     .then(washroomData => {
@@ -78,3 +87,28 @@ function initMap() {
     })
     .catch(error => {if (error) throw error;});
 }
+
+function handleFilterSubmit(event) {
+    event.preventDefault();
+
+    let ratingFilter;
+    const ratings = document.getElementsByName('rating');
+    if (ratings) {
+        ratings.forEach(rating => {
+            if (rating.checked){
+                ratingFilter = rating.value;
+            }
+        });
+    }
+
+    if (!ratingFilter) {
+        alert('You must indicate a star amount you\'d like to filter by!');
+    } else {
+        window.location.href = '/home/' + ratingFilter;
+    }
+}
+
+// Event listener
+document.getElementById('submit').addEventListener("click", handleFilterSubmit);
+
+

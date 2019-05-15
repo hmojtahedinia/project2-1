@@ -22,8 +22,12 @@ document.getElementById("userpageSubmit").addEventListener("click", (event) => {
         comment: comment.trim()
     };
     
-    postAjax('/api/washrooms', sendData, function(data) {
-        window.location.href = '/';
-    });
+    if (!(sendData.nameOfPlace && sendData.address && sendData.overallRating && sendData.comment)) {
+        alert('You must fill in all data to submit a washroom!');
+    } else {
+        postAjax('/api/washrooms', sendData, function(data) {
+            window.location.href = '/';
+        });
+    }
 });
 

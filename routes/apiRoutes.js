@@ -8,13 +8,14 @@ const Op = Sequelize.Op;
 
 module.exports = function(app) {
 	// Get all washrooms
-	app.get("/api/washrooms", function(req, res) {
+	app.get('/api/washrooms', (req, res) => {
 		db.Washroom.findAll({}).then(function(dbwashrooms) {
 			res.json(dbwashrooms);
 		});
 	});
 
-	app.get("/api/washrooms/:rating", function(req, res) {
+	// Get washrooms of a certain rating or higher
+	app.get('/api/washrooms/:rating', (req, res) => {
 		const rating = req.params.rating;
 
 		db.Washroom.findAll({
@@ -29,7 +30,7 @@ module.exports = function(app) {
 	});
 
 	// Create a new washroom
-	app.post("/api/washrooms", function(req, res) {
+	app.post('/api/washrooms', (req, res) => {
 
 		const washroomData = req.body;
 		washroomData.overallRating = parseInt(washroomData.overallRating);
