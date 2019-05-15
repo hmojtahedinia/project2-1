@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.get('/', (req, res) => {
       res.render('index', { 
         title: 'Time to Go Toronto',
-        rating: 10
+        rating: 'all'
       });
   });
   

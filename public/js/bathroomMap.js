@@ -11,7 +11,7 @@ function handleLocationError(browserHasGeolocation) {
 // main Google Map initializing function
 function initMap() {
     // Grab InfoWindow object from Maps API
-    infoWindow = new google.maps.InfoWindow();
+    infoWindow = new google.maps.InfoWindow({ maxWidth: 550 });
 
     const mapDiv = document.getElementById('map');
 
@@ -42,7 +42,7 @@ function initMap() {
     const ratingFilter = parseInt(mapDiv.dataset.filter);
     let queryUrl = '/api/washrooms';
 
-    if (ratingFilter <= 9) {
+    if (ratingFilter !== 'all') {
         queryUrl += '/' + ratingFilter;
     }
 
