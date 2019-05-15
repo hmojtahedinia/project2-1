@@ -1,5 +1,3 @@
-var db = require("../models");
-
 module.exports = function(app) {
   
   //Routes for Hanlebars (HOLLY)
