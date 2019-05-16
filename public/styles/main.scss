@@ -49,7 +49,7 @@ html{
 }
 body{
     background-color: color(primary);
-    overflow:auto;
+
 }
 footer{
     position:fixed;
@@ -60,6 +60,7 @@ footer{
     width:100%;
     margin-top:20px;
     z-index: -1;
+    
     @include mobile{
         font-size: 5px;
         left: 20%;
@@ -429,4 +430,7 @@ footer{
     @include mobile{
         margin-top:40%;
     }
+}
+#aboutUs{
+    margin-top:40%;
 }
