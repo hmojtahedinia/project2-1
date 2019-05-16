@@ -1,5 +1,11 @@
 // Declare global variables
 let map, infoWindow;
+// DOM element variables
+const mapDiv = document.getElementById('map');
+const search = document.getElementById('search');
+const input = document.getElementById('search-input');
+const ratings = document.getElementsByName('rating');
+const filterSubmit = document.getElementById('submit');
 
 //function handling geolocation errors
 function handleLocationError(browserHasGeolocation) {
@@ -13,8 +19,7 @@ function initMap() {
     // Grab InfoWindow object from Maps API
     infoWindow = new google.maps.InfoWindow({ maxWidth: 550 });
 
-    const mapDiv = document.getElementById('map');
-
+    // Create new map object within map div
     map = new google.maps.Map(mapDiv, {
         zoom: 12.15,
         center: new google.maps.LatLng(43.68, -79.43),
@@ -38,6 +43,42 @@ function initMap() {
         // Browser doesn't support Geolocation
         handleLocationError(false);
     }
+
+    // Create the search box and link it to the UI element.
+    var searchBox = new google.maps.places.SearchBox(input);
+
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds_changed', function() {
+      searchBox.setBounds(map.getBounds());
+    });
+
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener('places_changed', function() {
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+            return;
+        }
+
+        // For each place move theviewport to said place
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function(place) {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        
+        map.fitBounds(bounds);
+    });
 
     const ratingFilter = parseInt(mapDiv.dataset.filter);
     let queryUrl = '/api/washrooms';
@@ -92,7 +133,7 @@ function handleFilterSubmit(event) {
     event.preventDefault();
 
     let ratingFilter;
-    const ratings = document.getElementsByName('rating');
+    
     if (ratings) {
         ratings.forEach(rating => {
             if (rating.checked){
@@ -109,6 +150,7 @@ function handleFilterSubmit(event) {
 }
 
 // Event listener
-document.getElementById('submit').addEventListener("click", handleFilterSubmit);
-
-
+filterSubmit.addEventListener('click', handleFilterSubmit);
+search.addEventListener('click', (event) => {
+    event.preventDefault();
+});
