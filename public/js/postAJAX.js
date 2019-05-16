@@ -1,26 +1,27 @@
+// eslint-disable-next-line no-unused-vars
 function postAjax(url, data, success) {
-  var params =
-    typeof data === "string"
-      ? data
-      : Object.keys(data)
-          .map(function(k) {
-            return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-          })
-          .join("&");
+  const params = typeof data === 'string'
+    ? data
+    : Object.keys(data)
+      .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
+      .join('&');
 
-  var xhr = window.XMLHttpRequest
+  const xhr = window.XMLHttpRequest
     ? new XMLHttpRequest()
-    : new ActiveXObject("Microsoft.XMLHTTP");
-  xhr.open("POST", url);
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState > 3 && xhr.status == 200) {
+    // eslint-disable-next-line no-undef
+    : new ActiveXObject('Microsoft.XMLHTTP');
+  xhr.open('POST', url);
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState > 3 && xhr.status === 200) {
       success(xhr.responseText);
     } else if (xhr.status !== 200) {
-      console.log('Request failed. Returned status of ' + xhr.status);
+      // eslint-disable-next-line no-console
+      console.log(`Request failed. Returned status of ${xhr.status}`);
     }
   };
-  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send(params);
   return xhr;
 }

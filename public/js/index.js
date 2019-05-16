@@ -1,99 +1,159 @@
-// Get references to page elements
-var $washroomText = $("#washroom-text");
-var $washroomDescription = $("#washroom-description");
-var $submitBtn = $("#submit");
-var $washroomList = $("#washroom-list");
+/* eslint-disable no-alert */
+/* eslint-disable no-undef */
+// Declare global variables
+let map;
+let infoWindow;
+// DOM element variables
+const mapDiv = document.getElementById('map');
+const search = document.getElementById('search');
+const input = document.getElementById('search-input');
+const ratings = document.getElementsByName('rating');
+const filterSubmit = document.getElementById('submit');
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  savewashroom: function(washroom) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/washrooms",
-      data: JSON.stringify(washroom)
-    });
-  },
-  getwashrooms: function() {
-    return $.ajax({
-      url: "api/washrooms",
-      type: "GET"
-    });
-  },
-  deletewashroom: function(id) {
-    return $.ajax({
-      url: "api/washrooms/" + id,
-      type: "DELETE"
-    });
-  }
-};
+// function handling geolocation errors
+function handleLocationError(browserHasGeolocation) {
+  alert(browserHasGeolocation
+    ? 'Error: The Geolocation service failed.'
+    : 'Error: Your browser doesn\'t support geolocation.');
+}
 
-// refreshwashrooms gets new washrooms from the db and repopulates the list
-var refreshwashrooms = function() {
-  API.getwashrooms().then(function(data) {
-    var $washrooms = data.map(function(washroom) {
-      var $a = $("<a>")
-        .text(washroom.text)
-        .attr("href", "/washroom/" + washroom.id);
+// main Google Map initializing function
+// eslint-disable-next-line no-unused-vars
+function initMap() {
+  // Grab InfoWindow object from Maps API
+  infoWindow = new google.maps.InfoWindow({ maxWidth: 550 });
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": washroom.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $washroomList.empty();
-    $washroomList.append($washrooms);
+  // Create new map object within map div
+  map = new google.maps.Map(mapDiv, {
+    zoom: 12.15,
+    center: new google.maps.LatLng(43.68, -79.43),
+    mapTypeId: 'terrain',
   });
-};
 
-// handleFormSubmit is called whenever we submit a new washroom
-// Save the new washroom to the db and refresh the list
-var handleFormSubmit = function(event) {
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+
+      map.setCenter(pos);
+      map.setZoom(14.5);
+    }, () => {
+      handleLocationError(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false);
+  }
+
+  // Create the search box and link it to the UI element.
+  const searchBox = new google.maps.places.SearchBox(input);
+
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener('bounds_changed', () => {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener('places_changed', () => {
+    const places = searchBox.getPlaces();
+
+    if (places.length === 0) {
+      return;
+    }
+
+    // For each place move theviewport to said place
+    const bounds = new google.maps.LatLngBounds();
+    places.forEach((place) => {
+      if (!place.geometry) {
+        return;
+      }
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+
+    map.fitBounds(bounds);
+  });
+
+  // eslint-disable-next-line radix
+  const ratingFilter = parseInt(mapDiv.dataset.filter);
+  let queryUrl = '/api/washrooms';
+
+  if (ratingFilter !== 'all') {
+    queryUrl += `/${ratingFilter}`;
+  }
+
+  // Get database info from server
+  fetch(queryUrl).then(result => result.json())
+    .then((washroomData) => {
+      // Loop through the results array and place a marker for each
+      // set of coordinates.
+      /* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
+      for (let i = 0; i < washroomData.length; i++) {
+        const washroom = washroomData[i];
+
+        const latLong = { lat: washroom.latitude, lng: washroom.longitude };
+
+        const contentString = `<div id="content">
+                <div id="siteNotice">
+                </div>
+                <h1 id="firstHeading" class="firstHeading">${washroom.nameOfPlace}</h1>
+                <div id="bodyContent" class="miniBox">
+                <p class="miniBox"><b>Address:</b> ${washroom.address}</p>
+                <p><b>Overall Rating:</b><img class="ministars" src="/styles/images/star${washroom.overallRating}.png"></img>
+                <p><b>Review:</b> ${washroom.comment}</p>
+                </div>
+                </div>`;
+
+        // Set google maps marker
+        const marker = new google.maps.Marker({
+          position: latLong,
+          map,
+          icon: washroom.overallRating > 5 ? 'https://maps.google.com/mapfiles/ms/icons/green.png' : 'https://maps.google.com/mapfiles/ms/icons/red.png',
+        });
+
+        // Add event listner to toggle infoWindow when any marker is clicked
+        // eslint-disable-next-line no-loop-func
+        google.maps.event.addListener(marker, 'click', function handleInfoToggle() {
+          infoWindow.setContent(contentString);
+          infoWindow.open(map, this);
+        });
+      }
+    })
+    .catch((error) => { if (error) throw error; });
+}
+
+
+function handleFilterSubmit(event) {
   event.preventDefault();
 
-  var washroom = {
-    text: $washroomText.val().trim(),
-    description: $washroomDescription.val().trim()
-  };
+  let ratingFilter;
 
-  if (!(washroom.text && washroom.description)) {
-    alert("You must enter an washroom text and description!");
-    return;
+  if (ratings) {
+    ratings.forEach((rating) => {
+      if (rating.checked) {
+        ratingFilter = rating.value;
+      }
+    });
   }
 
-  API.savewashroom(washroom).then(function() {
-    refreshwashrooms();
-  });
+  if (!ratingFilter) {
+    alert('You must indicate a star amount you\'d like to filter by!');
+  } else {
+    window.location.href = `/home/${ratingFilter}`;
+  }
+}
 
-  $washroomText.val("");
-  $washroomDescription.val("");
-};
-
-// handleDeleteBtnClick is called when an washroom's delete button is clicked
-// Remove the washroom from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deletewashroom(idToDelete).then(function() {
-    refreshwashrooms();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$washroomList.on("click", ".delete", handleDeleteBtnClick);
+// Event listener
+filterSubmit.addEventListener('click', handleFilterSubmit);
+search.addEventListener('click', (event) => {
+  event.preventDefault();
+});
