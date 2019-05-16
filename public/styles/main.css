@@ -247,6 +247,10 @@ footer {
   width: 300px;
 }
 
+#searchBox {
+  margin-left: 3em;
+}
+
 .modal-body {
   background-color: #474646;
 }
