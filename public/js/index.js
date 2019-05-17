@@ -5,7 +5,6 @@ let map;
 let infoWindow;
 // DOM element variables
 const mapDiv = document.getElementById('map');
-const search = document.getElementById('search');
 const input = document.getElementById('searchBox');
 const ratings = document.getElementsByName('rating');
 const filterSubmit = document.getElementById('submit');
@@ -154,6 +153,3 @@ function handleFilterSubmit(event) {
 
 // Event listener
 filterSubmit.addEventListener('click', handleFilterSubmit);
-search.addEventListener('click', (event) => {
-  event.preventDefault();
-});
