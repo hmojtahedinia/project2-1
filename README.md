@@ -23,6 +23,29 @@ https://limitless-retreat-50315.herokuapp.com/
 * CSS
 * SASS
 
+
+### Demo
+
+Our app is responsive to various devices. When you first launch our app, you will be direct to the main page. 
+![](appScreenshots/1.PNG)      ![](appScreenshots/101.PNG)
+
+
+To add a washroom, simply click  "Add a Rating" and complete all the fields. 
+![](appScreenshots/4.PNG)      ![](appScreenshots/404.PNG)
+
+
+You will then find your washroom added to our databse and displayed on on the map. 
+![](appScreenshots/5.PNG)      ![](appScreenshots/505.PNG)
+
+
+There is an option to search for washroom in our database based on it's overal rating. To do so, click on the filter icon on the side of the search bar and select a star of your rating. 
+![](appScreenshots/6.PNG)      ![](appScreenshots/606.PNG)
+
+
+Our app will then return all washrooms that match the user's specification. 
+![](appScreenshots/7.PNG)      ![](appScreenshots/707.PNG)
+
+
 ## Authors
 * **Alex Treude**         [Treudey](https://github.com/Treudey)
 * **Tiffany Lin**         [Tiffolin](https://github.com/Tiffolin)
