@@ -147,7 +147,7 @@ function handleFilterSubmit(event) {
   if (!ratingFilter) {
     alert('You must indicate a star amount you\'d like to filter by!');
   } else {
-    window.location.href = `/home/${ratingFilter}`;
+    window.location.href = `/?filter=${ratingFilter}`;
   }
 }
 

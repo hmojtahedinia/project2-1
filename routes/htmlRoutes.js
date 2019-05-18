@@ -1,9 +1,15 @@
 module.exports = (app) => {
   // Routes for Handlebars (HOLLY)
   app.get('/', (req, res) => {
+    let ratingFilter = req.query.filter;
+
+    if (!ratingFilter) {
+      ratingFilter = 'all';
+    }
+
     res.render('index', {
       title: 'Time to Go Toronto',
-      rating: 'all',
+      rating: ratingFilter,
     });
   });
 
@@ -16,15 +22,6 @@ module.exports = (app) => {
   app.get('/add', (req, res) => {
     res.render('add', {
       title: 'Rate a Washroom',
-    });
-  });
-
-  app.get('/home/:filter', (req, res) => {
-    const ratingFilter = req.params.filter;
-
-    res.render('index', {
-      title: 'Time to Go Toronto',
-      rating: ratingFilter,
     });
   });
 
