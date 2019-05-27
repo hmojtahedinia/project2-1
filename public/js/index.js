@@ -5,7 +5,6 @@ let map;
 let infoWindow;
 // DOM element variables
 const mapDiv = document.getElementById('map');
-const search = document.getElementById('search');
 const input = document.getElementById('searchBox');
 const ratings = document.getElementsByName('rating');
 const filterSubmit = document.getElementById('submit');
@@ -148,12 +147,9 @@ function handleFilterSubmit(event) {
   if (!ratingFilter) {
     alert('You must indicate a star amount you\'d like to filter by!');
   } else {
-    window.location.href = `/home/${ratingFilter}`;
+    window.location.href = `/?filter=${ratingFilter}`;
   }
 }
 
 // Event listener
 filterSubmit.addEventListener('click', handleFilterSubmit);
-search.addEventListener('click', (event) => {
-  event.preventDefault();
-});

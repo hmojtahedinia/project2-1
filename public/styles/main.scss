@@ -228,6 +228,14 @@ footer{
 .navbar{
     background-color:transparent;
 }
+
+#searchBox {
+    margin-left: 3em;
+  }
+  
+  .modal-body {
+    background-color: #474646;
+  }
 // bar contains search form & filter btn
 #searchParameters{
     z-index:2;
@@ -275,6 +283,7 @@ footer{
     }
 }
 // Hamburger menu is only visable on mobile ports
+
 // toggling of side-bar 
 #sidebarCollapse{
     visibility: hidden;
